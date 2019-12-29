@@ -1,22 +1,25 @@
-
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Tema {
-	
-	private String nombre;
-//	private List<Pregunta> preguntasDelTema;
-	
-	public Tema (String unNombre) {
-		
-		nombre= unNombre;
-//		List<Pregunta>preguntasDelTema =new ArrayList<Pregunta>();
-	}
-	
-	public String getNombreTema() {
-		return nombre;
-	}
-	
+private List<Pregunta> preguntasDelTema;
+private String tema;
+
+public Tema(String tema) {
+	preguntasDelTema = new ArrayList <Pregunta> ();
+	this.tema = tema;
+}
+public void agregarPregunta(Pregunta unaPregunta) {
+	preguntasDelTema.add(unaPregunta);
+}
+public String getTema() {
+	return tema;
+}
+
+
+public List<Pregunta> getPreguntasDelTema(){
+	return  preguntasDelTema;
+}
 
 }

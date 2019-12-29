@@ -1,44 +1,32 @@
 
 public class Jugador {
-	
-	private String nombre;
-//  private String apellido;
-//	private String usuario;
-// 	private String email;
-// 	private String provincia;
-// 	private String ciudad;
-	private Integer puntos;
-	private Integer vidas;
-	
-	
-	public Jugador (String unNombre, Integer susPuntos, Integer susVidas) {
-		nombre=unNombre;
-		puntos = susPuntos;
-		vidas = susVidas;
-			
-	}
-	
-	public Integer getVidas() {
-		return vidas;
-	}
-	
-	public Integer setVidas() {
-		return vidas;
-	}
-	
-	public Integer getPuntos() {
-		return puntos;
-	}
-	
-	public Integer setPuntos() {
-		return puntos;
-	}
-	
-	public String getNombre() {
-		return nombre;
-	}
-	
-	public void jugar() {
-		
-	}
+private String nombre;
+private String apodo;
+private Integer puntosPartida = 0;
+private Integer vidas= 3;
+
+public Jugador (String unNombre, String unApodo) {
+	this.nombre= unNombre;
+	this.apodo= unApodo;
+}
+public String getNombre() {
+	return nombre;
+}
+public String getApodo() {
+	return apodo;
+}
+public Integer getPuntos() {
+	return puntosPartida;
+}
+public Integer getVidas() {
+	return vidas;
+}
+public void acumularPuntos() {
+	puntosPartida= puntosPartida+5;
+	System.out.println("ahora tenes: "+ puntosPartida + " puntos");
+}
+public void restarVidas() {
+	vidas=vidas-1;
+	System.out.println("te quedan: "+ vidas + "vidas");
+}
 }

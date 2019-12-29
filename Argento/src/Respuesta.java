@@ -1,20 +1,22 @@
 
 public class Respuesta {
-	
-	private String texto;
-	private Boolean correcta;
-	
-	public Respuesta(String elTexto, Boolean esCorrecta) {
-		texto = elTexto;
-		correcta = esCorrecta;
 
+	private String unaRespuesta;
+	private Boolean esCorrecta;
+	
+	public Respuesta (String laRespuesta, Boolean esCorrectaSiONo) {
+		this.unaRespuesta= laRespuesta;
+		this.esCorrecta= esCorrectaSiONo;
+	
+		}
+	public String getUnaRespuesta() {
+		return unaRespuesta;
+		
 	}
-	
-	
-	public String getTextoRespuesta() {
-	return texto;
-	
+	public Boolean getEsCorrecta () {
+		return esCorrecta;
 	}
+		
+		}
 	
 
-}
