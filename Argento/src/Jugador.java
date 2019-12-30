@@ -27,6 +27,6 @@ public void acumularPuntos() {
 }
 public void restarVidas() {
 	vidas=vidas-1;
-	System.out.println("te quedan: "+ vidas + "vidas");
+	System.out.println("te quedan: "+ vidas + " vidas");
 }
 }
