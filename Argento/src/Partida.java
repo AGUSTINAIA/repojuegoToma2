@@ -30,6 +30,8 @@ public class Partida {
 			Integer p = miAleatorioPregunta.nextInt(elTema.getPreguntasDelTema().size());
 			System.out.println(elTema.getPreguntasDelTema().get(p).getEnunciado());
 			Pregunta laPregunta = elTema.getPreguntasDelTema().get(p);
+			
+			elTema.sacarPregunta(laPregunta);
 
 			List<Respuesta> lasRespuestas = laPregunta.getLasOpciones();
 

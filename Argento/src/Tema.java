@@ -22,4 +22,7 @@ public List<Pregunta> getPreguntasDelTema(){
 	return  preguntasDelTema;
 }
 
+public void sacarPregunta (Pregunta unaPregunta) { 
+	preguntasDelTema.remove(unaPregunta);
+}
 }

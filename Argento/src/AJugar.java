@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class AJugar {
 
@@ -210,7 +210,40 @@ public class AJugar {
 	
 	
 	juego1.jugar(player1);
-	//juego1.elegirRespuesta(1, player1);
+	juego1.elegirRespuesta(3, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(2, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(1, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(2, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(3, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(2, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(1, player1);
+	juego1.jugar(player1);
+	juego1.elegirRespuesta(1, player1);
+	
+	
+/*	//while
+	Integer respuestaEnNUmero = 1;
+	
+	while(respuestaEnNUmero!=2){
+		//esto es para que el usuario pueda elegir una opcion
+		Scanner sc = new Scanner(System.in);
+	//	System.out.println("Ingresa una opcion");
+		String respuesta = sc.nextLine();
+		 respuestaEnNUmero = Integer.parseInt(respuesta);
+		System.out.println(respuesta);
+		juego1.elegirRespuesta(respuestaEnNUmero, player1);
+		
+	}*/
+	
+	
+	
+	
 	
 	
 	

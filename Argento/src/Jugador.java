@@ -29,4 +29,7 @@ public void restarVidas() {
 	vidas=vidas-1;
 	System.out.println("te quedan: "+ vidas + " vidas");
 }
+
+
+ 
 }
