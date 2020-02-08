@@ -32,6 +32,7 @@ public class AJugar {
 	Respuesta opcion2B = new Respuesta ("Armando", true);
 	Respuesta opcion2C = new Respuesta ("Ronaldo", false);
 	
+	
 	pregunta2.agregarOpcion(opcion2A);
 	pregunta2.agregarOpcion(opcion2B);
 	pregunta2.agregarOpcion(opcion2C);
@@ -211,7 +212,9 @@ public class AJugar {
 	
 	juego1.jugar(player1);
 	juego1.elegirRespuesta(3, player1);
-	juego1.jugar(player1);
+	juego1.queTanArgentoSoy(player1); 
+	
+	/*juego1.jugar(player1);
 	juego1.elegirRespuesta(2, player1);
 	juego1.jugar(player1);
 	juego1.elegirRespuesta(1, player1);

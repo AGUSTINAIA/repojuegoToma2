@@ -50,6 +50,8 @@ public class Partida {
 		}
 
 	}
+	
+	Integer contadorRetasCorrectas = 0;
 
 	public void elegirRespuesta(Integer numeroDeRespuesta, Jugador unJugador) {
 
@@ -60,7 +62,8 @@ public class Partida {
 				if (soluciones.get(numeroDeRespuesta - 1) == true) {
 					System.out.println("Respuesta correcta");
 					unJugador.acumularPuntos();
-
+					contadorRetasCorrectas = contadorRetasCorrectas ++;
+					
 					return;
 				} else {
 
@@ -74,8 +77,31 @@ public class Partida {
 
 		} else {
 			System.out.println("No te quedan mas vidas");
+			Integer puntajeFinal = unJugador.getPuntos();
+			System.out.println("tus puntos son: "+ puntajeFinal);
 		}
 	}
+	
+public void queTanArgentoSoy(Jugador unJugador) {
+		
+		if (unJugador.getVidas() == 3) {
+			System.out.println("Felicitaciones!! Ud es 100% Argento");
+		} else {
+			Integer totalPreguntas = 0;
+			Integer porcentajeAcierto = 0;
+			for (int i = 0; i < listaDeTemas.size(); i++) {
+				totalPreguntas = totalPreguntas + (listaDeTemas.get(i).cantidadPreguntasPorTema());
+				return;
+				
+				
+			} 	
+						
+			porcentajeAcierto = ((contadorRetasCorrectas *100)/ totalPreguntas);
+			System.out.println("Sos " + porcentajeAcierto + "% Argento" );
+			
+		} 
+	}
+
 	
 	
 
