@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  background-image: url(../imagenes/fondo12.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  image-resolution: snap;
+
+}
+
+header{
+  position: fixed;
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
+}
+
+.bg-light{
+    width: 100%!important;
+    background: #337cc4!important;
+    width: 100%!important;
+  }
+
+header .navbar-expand-lg{
+      margin-left: 0px!important;
+
+  }
+
+header nav .navbar-brand{
+    color: white!important;
+    font-family: 'Signika', sans-serif !important;
+
+  }
+
+
+header nav ul li a {
+  background: #337cc4!important;
+  color: white!important;
+  font-family: 'Signika', sans-serif;
+  margin-left: 70px;
+}
+
+header nav ul li a:hover {
+
+  background: #fff!important;
+  color: #337cc4!important;
+  }
+
+header nav div form .btn-outline-success{
+    background: #007bff!important;
+    border-color: solid 0.5px rgba(255, 255, 255, 0.5)!important;
+    color: white!important;
+    font-family: 'Signika', sans-serif;
+  }
+
+header nav div form .btn-outline-success:hover{
+    background-color: white!important;
+    border-color: #007bff!important;
+    color: #007bff!important;
+
+  }
+
+header nav a .logo{
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+form.needs-validation {
+  padding: 20px;
+  text-align: center;
+  padding-top: 100px!important;
+  padding-bottom: 0px!important;
+  padding: 10%;
+  }
+
+form.needs-validation div h1{
+  font-family: 'Satisfy', cursive!important;
+  font-size: 60px;
+  color:#1e4261;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+div.form-row label{
+  font-weight: bold;
+  color:#1e4261;
+  font-family: 'Signika', sans-serif;
+}
+
+
+div.form-control{
+  font-weight:
+}
+
+div.form-row{
+  margin: 20px;
+}
+
+form div.form-check{
+  margin-top: 50px;
+}
+
+button.btn.btn-primary{
+  margin-top: 15px;
+}
+
+button.btn.btn-primary:hover{
+
+  color: #007bff!important;
+  background-color: #fff!important;
+  border-color: #007bff!important;
+}
+
+span.errorNombre, .errorEmail, .errorApellido, .errorApodo, .errorContraseña, .errorReContraseña, .errorProvincia, .errorCiudad {
+  color: red;
+  font-size: 14px;
+}
+
+.input-group {
+  flex-wrap: nowrap!important;
+}
+
+footer{
+  display: flex;
+  margin-top: 50px;
+}
+
+.footer{
+  background: #fff;
+  justify-content: center;
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 35%!important;
+  width: 100%;
+  position: fixed!important;
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width:990px){
+
+  header nav .navbar-brand{
+    font-size: 25px;
+    margin-bottom: 3px;
+
+  }
+
+  header nav .navbar-toggler{
+    border-color: white!important;
+  }
+
+  header nav button .navbar-toggler-icon{
+    color: white!important;
+  }
+
+  header nav ul li a{
+    width: 100%;
+    height: 36px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3)!important;
+
+
+  }
+
+  header nav ul li #HOME, #REGISTRATE, #LOGIN{
+    padding-top: 12px!important;
+  }
+
+  header div .form-inline{
+    display: none!important;
+  }
+
+  form.needs-validation{
+    max-width: 100%;
+    flex: 100%;
+  }
+
+  form.needs-validation div h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .a{
+    max-width: 100%;
+    flex: 100%;
+  }
+
+  .footer{
+      font-size: 10px;
+      padding-left: 30px!important;
+
+  }
+
+}
