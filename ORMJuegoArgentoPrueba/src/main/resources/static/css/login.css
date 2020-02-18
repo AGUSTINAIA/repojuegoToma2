@@ -1,0 +1,190 @@
+
+body{
+box-sizing: border-box;
+margin: 0;
+margin-top: 100px;
+margin-bottom: 50px;
+padding: 0;
+background-image: url(../imagenes/fondo12.jpg);
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+image-resolution: snap;
+
+}
+
+header{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
+  margin-bottom: 70px;
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+
+}
+
+
+.bg-light{
+    width: 100%!important;
+    background: #337cc4!important;
+    width: 100%!important;
+    margin-left: 30px!important;
+  }
+
+header .navbar-expand-lg{
+      margin-left: 0px!important;
+
+  }
+
+header nav .navbar-brand{
+    color: white!important;
+    font-family: 'Signika', sans-serif !important;
+
+  }
+
+
+header nav ul li a {
+  background: #337cc4!important;
+  color: white!important;
+  font-family: 'Signika', sans-serif;
+  margin-left: 70px;
+}
+
+header nav ul li a:hover {
+
+  background: #fff!important;
+  color: #337cc4!important;
+  }
+
+header nav div form .btn-outline-success{
+    background: #007bff!important;
+    border-color: solid 0.5px rgba(255, 255, 255, 0.5)!important;
+    color: white!important;
+    font-family: 'Signika', sans-serif;
+  }
+
+header nav div form .btn-outline-success:hover{
+    background-color: white!important;
+    border-color: #007bff!important;
+    color: #007bff!important;
+
+  }
+
+header nav a .logo{
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.form-login{
+  margin-top: 30px;
+  font-family: 'Signika', sans-serif;
+}
+
+h3{
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.formulario form p input.casillero{
+width: 300px;
+height: 40px;
+border-radius: 5px;
+color: #aba8a1;
+padding top: 6px!important;
+padding bottom: 6px!important;
+}
+.avatar{
+  margin-bottom: 20px;
+}
+
+.boton-face .btn-primary:hover .btn-primary:hover {
+    color: #007bff;
+    background-color: #fff!important;
+    border-color: #007bff!important;
+}
+.linea-texto{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+footer{
+  display: flex;
+}
+.footer{
+  background: #fff;
+  justify-content: center;
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 35%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+
+span.errorEmail{
+  color: red;
+  font-size: 14px;
+
+}
+
+span.errorContraseña{
+  color: red;
+  font-size: 14px;
+}
+@media (max-width:990px) {
+
+  header .navbar-expand-lg{
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin-left: 0px!important;
+  }
+
+
+  header nav .navbar-brand{
+    font-size: 25px;
+    margin-bottom: 3px;
+
+  }
+
+  header nav .navbar-toggler{
+    border-color: white!important;
+  }
+
+  header nav button .navbar-toggler-icon{
+    color: white!important;
+  }
+
+  header nav ul li a{
+    width: 100%;
+    height: 36px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3)!important;
+
+
+  }
+
+  header nav ul li #HOME, #REGISTRATE, #LOGIN{
+    padding-top: 12px!important;
+  }
+
+  header div .form-inline{
+    display: none!important;
+  }
+
+
+  .footer{
+    font-size: 10px;
+    padding-left: 10%;
+      }
+}
