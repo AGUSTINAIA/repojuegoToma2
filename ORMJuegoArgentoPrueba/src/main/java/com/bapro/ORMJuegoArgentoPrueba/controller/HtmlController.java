@@ -2,6 +2,7 @@ package com.bapro.ORMJuegoArgentoPrueba.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HtmlController {
@@ -16,7 +17,7 @@ public class HtmlController {
 		return "./login/login";
 	}
 	
-	@GetMapping("preguntas")
+	@GetMapping("faqs")
 	public String irAPreguntas() {
 		return "./preguntas/preguntas";
 	}
@@ -25,5 +26,21 @@ public class HtmlController {
 	public String irARegistro() {
 		return "./registro/registro";
 	}
-
+	
+	@GetMapping("partida")
+	public String irAPartida() {
+		return "./partida/comienzo_de_partida";
+	}
+	@GetMapping("pyr")
+	public String irAPreguntaYRespuesta() {
+		return "./PreguntaYRespuesta/preguntas_respuestas.html";
+	}
+	
+	@PostMapping("pyr")
+	public String postPreguntaYRespuesta() {
+		System.out.println("Holaaaa");
+		return "./PreguntaYRespuesta/preguntas_respuestas.html";
+	}
+	
+	
 }

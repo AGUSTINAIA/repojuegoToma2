@@ -30,8 +30,8 @@ public class Pregunta {
 	@Column(nullable = false)
 	private Integer puntaje;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Respuesta> lasOpciones;
+	//@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//private List<Respuesta> lasOpciones;
 	
 	@OneToOne
 	@JoinColumn (name = "tema_id")
@@ -50,7 +50,7 @@ public class Pregunta {
 		this.enunciado = enunciado;
 		this.puntaje = puntaje;
 		
-		lasOpciones= new ArrayList<Respuesta>();
+		//lasOpciones= new ArrayList<Respuesta>();
 	}
 
 	public Integer getId() {
@@ -77,13 +77,13 @@ public class Pregunta {
 		this.puntaje = puntaje;
 	}
 
-	public List<Respuesta> getLasOpciones() {
-		return lasOpciones;
-	}
+	//public List<Respuesta> getLasOpciones() {
+	//	return lasOpciones;
+	//}
 
-	public void setLasOpciones(List<Respuesta> lasOpciones) {
+	/*public void setLasOpciones(List<Respuesta> lasOpciones) {
 		this.lasOpciones = lasOpciones;
-	}
+	}*/
 
 
 	

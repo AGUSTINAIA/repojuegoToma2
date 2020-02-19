@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scalable=1">
-    <title>Preguntas_respuestas</title>
+    <title>Comienzo de Partida</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/preguntas_respuestas.css">
+    <link rel="stylesheet" href="/css/comienzo.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap" rel="stylesheet">
 
   </head>
@@ -40,37 +40,14 @@
       </header>
 
       <main class="row">
-
-          <aside class="tema col-md-1">
-            <h3>TEMA</h3>
-          </aside>
-          <div class="preg_rtas col-md-7">
-            <div class="pregunta">
-              <h3>TEXTO PREGUNTA</h3>
-            </div>
-
-            <form class="" action="preguntas_respuestas.html" method="post">
-
-           <div class="opcion1">
-
-              <button  class="boton_dado" type="submit" name="button" > texto opcion 1</button>
-            </div>
-            <div class="opcion2">
-              <button  class="boton_dado" type="submit" name="button" > texto opcion 2</button>
-            </div>
-            <div class="opcion3">
-              <button  class="boton_dado" type="submit" name="button" > texto opcion 3</button>
+        <div class="container-fluid contenedor">
+          <div class="dado col-md-7 offset-md-1">
+            <form class="" action="/pyr" method="post">
+              <h3>Toca el dado para elegir el tema con el que vas a jugar...</h3>
+              <button  class="boton_dado" type="submit" name="button" > <img class="dado_animado" src="https://www.gifsanimados.org/data/media/710/dado-imagen-animada-0052.gif" border="0" alt="dado-imagen-animada-0052" /></button>
             </form>
-            </div>
+
           </div>
-          <aside class="datos col-md-2 offset-md-1">
-            <ul>
-              <li>Usuario</li>
-              <li>vidas</li>
-              <li>Puntaje de Partida</li>
-              <li>Tu mejor puntaje</li>
-            </ul>
-          </aside>
 
       </main>
 
