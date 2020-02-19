@@ -27,10 +27,11 @@ public void sacarPregunta (Pregunta unaPregunta) {
 }
 
 public Integer cantidadPreguntasPorTema () { 
-	Integer CantidadPreguntas = 0;
-	for (int i = 0; i < preguntasDelTema.size(); i++) {
-		CantidadPreguntas = CantidadPreguntas ++;
-	} return CantidadPreguntas;
+	return preguntasDelTema.size();
+//	Integer cantidadPreguntas = 0;
+//	for (int i = 0; i < preguntasDelTema.size(); i++) {
+//		cantidadPreguntas++;
+//	} return cantidadPreguntas;
 }
 
 }

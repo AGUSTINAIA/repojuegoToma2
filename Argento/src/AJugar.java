@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class AJugar {
 
 	public static void main(String[] args) {
@@ -13,7 +11,7 @@ public class AJugar {
 	Tema deportes= new Tema ("Deportes");
 	
 	Jugador player1= new Jugador("estefi", "estefigaray12");
-	Partida juego1= new Partida(player1);
+	PartidaIndividual juego1= new PartidaIndividual();
 	
 	Pregunta pregunta1= new Pregunta ("¿En que año fue la Revolucion de Mayo?", 5);
 	Respuesta opcion1A = new Respuesta ("1801", false);
@@ -208,27 +206,31 @@ public class AJugar {
 	juego1.agregarTemas(cienciaYTecnologia);
 	juego1.agregarTemas(deportes);
 
+	juego1.agregarJugadores(player1);
 	
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(3, "estefigaray12");
+	juego1.queTanArgentoSoy("estefigaray12"); 
 	
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(3, player1);
-	juego1.queTanArgentoSoy(player1); 
-	
-	/*juego1.jugar(player1);
-	juego1.elegirRespuesta(2, player1);
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(1, player1);
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(2, player1);
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(3, player1);
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(2, player1);
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(1, player1);
-	juego1.jugar(player1);
-	juego1.elegirRespuesta(1, player1);
-	
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(2, "estefigaray12");
+	juego1.queTanArgentoSoy("estefigaray12");
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(1, "estefigaray12");
+	juego1.queTanArgentoSoy("estefigaray12"); 
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(2, "estefigaray12");
+	juego1.queTanArgentoSoy("estefigaray12"); 
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(3, "estefigaray12");
+	juego1.queTanArgentoSoy("estefigaray12"); 
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(2, "estefigaray12");
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(1, "estefigaray12");
+	juego1.jugar("estefigaray12");
+	juego1.elegirRespuesta(1, "estefigaray12");
+	juego1.queTanArgentoSoy("estefigaray12"); 
 	
 /*	//while
 	Integer respuestaEnNUmero = 1;

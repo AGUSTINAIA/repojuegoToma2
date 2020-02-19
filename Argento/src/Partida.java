@@ -1,26 +1,44 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
-public class Partida {
+public abstract class Partida {
 	private List<Tema> listaDeTemas;
-	private Jugador jugador;
+	private List <Jugador> listaDeJugadores;
 
-	public Partida(Jugador unJugador) {
+	public Partida() {
 		this.listaDeTemas = new ArrayList<Tema>();
-		this.jugador = unJugador;
+		this.listaDeJugadores = new ArrayList<Jugador>();
 
 	}
 
 	public void agregarTemas(Tema unTema) {
 		listaDeTemas.add(unTema);
 	}
+	public void agregarJugadores(Jugador unJugador) {
+		listaDeJugadores.add(unJugador);
+	}
 
 	List<Boolean> soluciones = new ArrayList<Boolean>();
-
-	public void jugar(Jugador unJugador) {
-
-		if (unJugador.getVidas() > 0) {
+	
+	
+	public Jugador buscarJugador(String apodo) {
+		Jugador jugadorBuscado = null;
+		for(int i=0; i<listaDeJugadores.size(); i++) {
+			Jugador jugadorActual= listaDeJugadores.get(i);
+			if(jugadorActual.getApodo().equals(apodo)) {
+				jugadorBuscado= jugadorActual;
+				break;
+			}
+				
+			}return jugadorBuscado;
+	}
+	
+	
+	public void jugar(String apodo) {
+		Jugador jugadorPartida= buscarJugador(apodo);
+		if (jugadorPartida.getVidas() > 0) {
 			Random miAleatorioTema = new Random();
 			Integer n = miAleatorioTema.nextInt(listaDeTemas.size());
 			System.out.println("El tema con el que vas a jugar es: " + listaDeTemas.get(n).getTema());
@@ -51,40 +69,41 @@ public class Partida {
 
 	}
 	
-	Integer contadorRetasCorrectas = 0;
 
-	public void elegirRespuesta(Integer numeroDeRespuesta, Jugador unJugador) {
+	
 
-		if (unJugador.getVidas() > 0) {
+	public void elegirRespuesta(Integer numeroDeRespuesta, String apodo) {
+		Jugador jugadorPartida= buscarJugador(apodo);
+		if (jugadorPartida.getVidas() > 0) {
 
 			for (int i = 0; i < soluciones.size(); i++) {
 
 				if (soluciones.get(numeroDeRespuesta - 1) == true) {
 					System.out.println("Respuesta correcta");
-					unJugador.acumularPuntos();
-					contadorRetasCorrectas = contadorRetasCorrectas ++;
+					jugadorPartida.acumularPuntos();
+					jugadorPartida.acumularCorrectas();
 					
-					return;
+					break;
 				} else {
 
 					System.out.println("Incorrecta");
-					unJugador.restarVidas();
+					jugadorPartida.restarVidas();
 
-					return;
+					break;
 				}
 
 			}
 
 		} else {
 			System.out.println("No te quedan mas vidas");
-			Integer puntajeFinal = unJugador.getPuntos();
+			Integer puntajeFinal = jugadorPartida.getPuntos();
 			System.out.println("tus puntos son: "+ puntajeFinal);
 		}
 	}
-	
-public void queTanArgentoSoy(Jugador unJugador) {
-		
-		if (unJugador.getVidas() == 3) {
+/*	
+public void queTanArgentoSoy(String apodo) {
+	Jugador jugadorPartida= buscarJugador(apodo);
+		if (jugadorPartida.getVidas() == 3) {
 			System.out.println("Felicitaciones!! Ud es 100% Argento");
 		} else {
 			Integer totalPreguntas = 0;
@@ -100,9 +119,20 @@ public void queTanArgentoSoy(Jugador unJugador) {
 			System.out.println("Sos " + porcentajeAcierto + "% Argento" );
 			
 		} 
-	}
+	}*/
 
 	
+	public void queTanArgentoSoy(String apodo) {
+		Jugador jugadorPartida= buscarJugador(apodo);
+		Integer cantidadDePreguntas = 0;			
+		for(int i=0; i < listaDeTemas.size(); i++) {
+			Integer preguntasPorTema= listaDeTemas.get(i).cantidadPreguntasPorTema();
+			cantidadDePreguntas = cantidadDePreguntas + preguntasPorTema;
+		}
+		
+		System.out.println("Sos "+ ((jugadorPartida.getRespuestasCorrectas()*100)/cantidadDePreguntas)+ " % argento") ;
+	
+	}
 	
 
 }
