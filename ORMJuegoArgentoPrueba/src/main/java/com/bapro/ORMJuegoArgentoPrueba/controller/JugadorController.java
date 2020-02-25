@@ -23,6 +23,6 @@ public class JugadorController {
 	@PostMapping ("registro")
 	public String insertJugador (Jugador unJugador) {
 		jugadorJpaRepositorio.save(unJugador);
-		return "./partida/comienzo_de_partida";
+		return "./registroExitoso/registro_exitoso";
 	}
 }
