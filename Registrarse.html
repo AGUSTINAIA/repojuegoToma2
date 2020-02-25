@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,25 +38,31 @@
   </header>
 
   <body>
-    <form class="needs-validation" novalidate>
+    <form th:object="${jugador}" method="post" th:action="@{/registro_exitoso}" class="needs-validation" novalidate>
       <div class="row">
         <h1>¡Registrate y empezá a jugar!</h1>
       </div>
       <div class="form-row">
         <div class="col-12 col-md-4">
           <label>Nombre/s</label>
-          <input type="text" class="form-control valida-nombre"  placeholder="Nombre" value="" required>
+          <input th:field="{nombre}" th:classappend="${#fields.hasErrors('nombre')}? 'is-invalid' : ''"  type="text" class="form-control valida-nombre"  placeholder="Nombre" value="" required>
           <span class="errorNombre"></span>
+          <div class="invalid-feedback" th:errors="*{nombre}">
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <label>Apellido</label>
-          <input type="text" class="form-control valida-apellido"  placeholder="Apellido" value="" required>
+          <input th:field="{apellido}" th:classappend="${#fields.hasErrors('apellido')}? 'is-invalid' : ''"type="text" class="form-control valida-apellido"  placeholder="Apellido" value="" required>
           <span class="errorApellido"></span>
+          <div class="invalid-feedback" th:errors="*{apellido}">
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <label>Email</label>
-          <input type="text" class="email form-control"  placeholder="Email" value="" required>
+          <input th:field="{email}" th:classappend="${#fields.hasErrors('email')}? 'is-invalid' : ''"type="text" class="email form-control"  placeholder="Email" value="" required>
           <span class="errorEmail"></span>
+          <div class="invalid-feedback" th:errors="*{email}">
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <label>Apodo</label>
@@ -64,22 +70,27 @@
             <div class="input-group-prepend">
               <span class="input-group-text" >@</span>
             </div>
-            <input type="text" class="form-control valida-apodo"  placeholder="Apodo" aria-describedby="inputGroupPrepend" required>
+            <input th:field="{apodo}" th:classappend="${#fields.hasErrors('apodo')}? 'is-invalid' : ''"type="text" class="form-control valida-apodo"  placeholder="Apodo" aria-describedby="inputGroupPrepend" required>
             <span class="errorApodo"></span>
+            <div class="invalid-feedback" th:errors="*{apodo}">
+            </div>
           </div>
 
         </div>
 
         <div class="col-12 col-md-4">
           <label>Contraseña</label>
-          <input type="password" class="form-control valida-contraseña"  placeholder="Contraseña" value="" required>
+          <input th:field="{contraseña}" th:classappend="${#fields.hasErrors('contraseña')}? 'is-invalid' : ''"type="password" class="form-control valida-contraseña"  placeholder="Contraseña" value="" required>
           <span class="errorContraseña"></span>
-
+          <div class="invalid-feedback" th:errors="*{contraseña}">
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <label>Reingresa tu Contraseña</label>
-          <input type="password" class="form-control valida-recontraseña"  placeholder="Reingresa tu Contraseña" value="" required>
+          <input th:field="{contraseña}" th:classappend="${#fields.hasErrors('contraseña')}? 'is-invalid' : ''"type="password" class="form-control valida-recontraseña"  placeholder="Reingresa tu Contraseña" value="" required>
           <span class="errorReContraseña"></span>
+          <div class="invalid-feedback" th:errors="*{contraseña}">
+          </div>
         </div>
 
       </div>
@@ -94,8 +105,10 @@
         </div>
         <div class="col-12 col-md-6">
           <label>Ciudad</label>
-          <input type="text" class="form-control valida-ciudad"  placeholder="Ciudad" value="" required>
+          <input th:field="{ciudad}" th:classappend="${#fields.hasErrors('ciudad')}? 'is-invalid' : ''"type="text" class="form-control valida-ciudad"  placeholder="Ciudad" value="" required>
           <span class="errorCiudad"></span>
+          <div class="invalid-feedback" th:errors="*{ciudad}">
+          </div>
         </div>
       </div>
 
@@ -110,7 +123,7 @@
           </div>
         </div>
       </div>
-      <button class="boton-registro btn btn-primary" type="button">Registrarme</button>
+      <button type="submit" class="boton-registro btn btn-primary" >Registrarme</button>
     </form>
     <footer class="row">
       <div class="col-12 footer">
