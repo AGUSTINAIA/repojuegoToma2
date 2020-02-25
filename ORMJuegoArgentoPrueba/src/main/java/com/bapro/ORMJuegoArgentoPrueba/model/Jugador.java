@@ -32,17 +32,17 @@ public class Jugador {
 	
 	private String ciudad;
 	
-	@Column(nullable = false)
-	private Integer edad;
 	
-	private Integer puntos;
+
+	
+	
 	
 	public Jugador() {
 		
 	}
 	
 	public Jugador(Integer id, String nombre, String apellido, String email, String apodo, String provincia,
-			String ciudad, Integer edad) {
+			String ciudad) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -51,8 +51,7 @@ public class Jugador {
 		this.apodo = apodo;
 		this.provincia = provincia;
 		this.ciudad = ciudad;
-		this.edad = edad;
-		this.puntos = 0;
+		
 	}
 
 	public Integer getId() {
@@ -111,22 +110,7 @@ public class Jugador {
 		this.ciudad = ciudad;
 	}
 
-	public Integer getEdad() {
-		return edad;
-	}
 
-	public void setEdad(Integer edad) {
-		this.edad = edad;
-	}
-
-	public Integer getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
-	}
-	
 	
 	
 }

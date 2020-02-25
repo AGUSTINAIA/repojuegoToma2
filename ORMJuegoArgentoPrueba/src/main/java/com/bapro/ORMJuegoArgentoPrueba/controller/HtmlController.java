@@ -22,10 +22,7 @@ public class HtmlController {
 		return "./preguntas/preguntas";
 	}
 	
-	@GetMapping("registro")
-	public String irARegistro() {
-		return "./registro/registro";
-	}
+	
 	
 	@GetMapping("partida")
 	public String irAPartida() {
