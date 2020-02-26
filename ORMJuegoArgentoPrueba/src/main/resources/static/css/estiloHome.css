@@ -109,6 +109,9 @@ p{
 }
 
 
+.texto-boton{
+	color: white!important;
+}
 
 .btn-primary{
   margin-left: 40%;
@@ -118,6 +121,7 @@ p{
   font-size: 30px;
   height: 80px;
   width: 200px;
+  color: white!important;
 }
 
 main div .btn-primary:hover{

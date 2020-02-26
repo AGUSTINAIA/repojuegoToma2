@@ -1,130 +1,148 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Registro.css">
     <title>Registrate</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/registro.css">
+    <link rel="stylesheet" href="css/Registro.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap" rel="stylesheet">
-  </head>
-  <header class= "row">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="home.html"> <img src="imagenes/logo.png" alt="logo" class="logo">  </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+</head>
+<header class="row">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a href="home.html"> <img src="imagenes/logo.png" alt="logo"
+			class="logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="registro">REGISTRATE <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login">LOGIN</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="faqs">PREGUNTAS FRECUENTES</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
-  </div>
-</nav>
-  </header>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="registro">REGISTRATE
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="login">LOGIN</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="faqs">PREGUNTAS
+						FRECUENTES</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="¿Qué buscas?" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+			</form>
+		</div>
+	</nav>
+</header>
 
-  <body>
-    <form  method= "POST" class="needs-validation" >
-      <div class="row">
-        <h1>¡Registrate y empezá a jugar!</h1>
-      </div>
-      <div class="form-row">
-        <div class="col-12 col-md-4">
-          <label for= "inputNombre">Nombre/s</label>
-          <input name = "nombre" id = "inputNombre" type="text" class="form-control valida-nombre"  placeholder="Nombre" value="" required>
-          <span class="errorNombre"></span>
-        </div>
-        
-        <div class="col-12 col-md-4">
-          <label for = "inputApellido">Apellido</label>
-          <input id="inputApellido" name= "apellido" type="text" class="form-control valida-apellido"  placeholder="Apellido" value="" required>
-          <span class="errorApellido"></span>
-        </div>
-        
-        <div class="col-12 col-md-4">
-          <label for= "inputEmail">Email</label>
-          <input id ="inputEmail" name = email type="text" class="email form-control"  placeholder="Email" value="" required>
-          <span class="errorEmail"></span>
-        </div>
-        
-        <div class="col-12 col-md-4">
-          <label for = "inputApodo">Apodo</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" >@</span>
-            </div>
-            <input id= "inputApodo" name= "apodo" type="text" class="form-control valida-apodo"  placeholder="Apodo" aria-describedby="inputGroupPrepend" required>
-            <span class="errorApodo"></span>
-          </div>
+<body>
+	<form method="POST" class="needs-validation"  modelAttribute="jugador"  th:object="${jugador}" >
+		<div class="row">
+			<h1>¡Registrate y empezá a jugar!</h1>
+		</div>
+		<div class="form-row">
+			<div class="col-12 col-md-4">
+				<label for="inputNombre">Nombre/s</label> <input th:field="*{nombre}"  name="nombre"
+					id="inputNombre" type="text" class="form-control valida-nombre"
+					placeholder="Nombre" value="" required> <span
+					class="errorNombre"></span>
+				<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
+			</div>
+			<div class="col-12 col-md-4">
+				<label for="inputApellido">Apellido</label> 
+				<input th:field="*{apellido}" id="inputApellido" name="apellido" type="text"
+					class="form-control valida-apellido" placeholder="Apellido"
+					value="" required> <span class="errorApellido"></span>
+				<td th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></td>
 
-        </div>
+			</div>
+			<div class="col-12 col-md-4">
+				<label for="inputEmail">Email</label> <input id="inputEmail"
+					name=email type="text" class="email form-control"
+					placeholder="Email" value="" required> <span
+					class="errorEmail"></span>
+				<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
 
-        <div class="col-12 col-md-4">
-          <label>Contraseña</label>
-          <input type="password" class="form-control valida-contraseña"  placeholder="Contraseña" value="" required>
-          <span class="errorContraseña"></span>
+			</div>
+			<div class="col-12 col-md-4">
+				<label for="inputApodo">Apodo</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">@</span>
+					</div>
+					<input id="inputApodo" name="apodo" type="text"
+						class="form-control valida-apodo" placeholder="Apodo"
+						aria-describedby="inputGroupPrepend" required> <span
+						class="errorApodo"></span>
+					<td th:if="${#fields.hasErrors('apodo')}" th:errors="*{apodo}"></td>
+ 
+				</div>
 
-        </div>
-        <div class="col-12 col-md-4">
-          <label>Reingresa tu Contraseña</label>
-          <input type="password" class="form-control valida-recontraseña"  placeholder="Reingresa tu Contraseña" value="" required>
-          <span class="errorReContraseña"></span>
-        </div>
+				<div class="col-12 col-md-4">
+					<label>Contraseña</label> <input type="password"  th:field="*{contraseña}"
+						class="form-control valida-contraseña" placeholder="Contraseña"
+						value="" required> <span class="errorContraseña"></span>
+					<td th:if="${#fields.hasErrors('contraseña')}"
+						th:errors="*{contraseña}"></td>
+				</div>
+				<div class="col-12 col-md-4">
+					<label>Reingresa tu Contraseña2</label> <input type="password"  th:field="*{contraseña2}"
+						class="form-control valida-recontraseña"
+						placeholder="Reingresa tu Contraseña" value="" required> <span
+						class="errorReContraseña"></span>
+					<td th:if="${#fields.hasErrors('contraseña2')}"
+						th:errors="*{contraseña2}"></td>
 
-      </div>
-      <div class="form-row">
+				</div>
+				 
+				<div class="form-row">
 
-        <div class="col-12 col-md-6">
-          <label for = "provincias" >Provincia</label>
-          <select type="text" class="form-control valida-provincia" placeholder="Provincia" required value="" name="provincia" id="provincias">
-            <option type="text" class="form-control" placeholder="Provincia" required value="">Selecciona una provincia</option>
-            <span class="errorProvincia"></span>
-          </select>
-        </div>
-        
-        <div class="col-12 col-md-6">
-          <label for = "insertCiudad">Ciudad</label>
-          <input id="insertCiudad" name= "ciudad" type="text" class="form-control valida-ciudad"  placeholder="Ciudad" value="" required>
-          <span class="errorCiudad"></span>
-        </div>
-      </div>
+					<div class="col-12 col-md-6">
+						<label for="provincias">Provincia</label> <select type="text"
+							class="form-control valida-provincia" placeholder="Provincia"
+							required value="" name="provincia" id="provincias">
+							<option type="text" class="form-control" placeholder="Provincia"
+								required value="">Selecciona una provincia</option>
+							<span class="errorProvincia"></span>
+						</select>
+					</div>
 
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-          <label class="form-check-label" for="invalidCheck">
-            Acepto los términos y condiciones.
-          </label>
-          <div class="invalid-feedback">
-            Aceptá los términos y condiciones antes de registrarte.
-          </div>
-        </div>
-      </div>
-      <button class="boton-registro btn btn-primary" type="submit">Registrarme</button>
-    </form>
-    <footer class="row">
-      <div class="col-12 footer">
-        Grupo9DHCopyright2019 - Todos los derechos reservados
-      </div>
-    </footer>
+					<div class="col-12 col-md-6">
+						<label for="insertCiudad">Ciudad</label> <input id="insertCiudad" th:field="*{ciudad}"
+							name="ciudad" type="text" class="form-control valida-ciudad"
+							placeholder="Ciudad" value="" required> <span
+							class="errorCiudad"></span>
+							<td th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></td>
+ 
+					</div>
 
-    <script src= "javascript/registro.js" stype="text/javascript">
+					<div class="form-group">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="invalidCheck" required> <label
+								class="form-check-label" for="invalidCheck"> Acepto los
+								términos y condiciones. </label>
+							<div class="invalid-feedback">Aceptá los términos y
+								condiciones antes de registrarte.</div>
+						</div>
+					</div>
+					<button class="boton-registro btn btn-primary" type="submit">Registrarme</button>
+	</form>
+	<footer class="row">
+		<div class="col-12 footer">Grupo9DHCopyright2019 - Todos los
+			derechos reservados</div>
+	</footer>
 
-    </script>
-<script type="text/javascript">
+	<!-- <script src= "javascript/registro.js" stype="text/javascript">
+
+    </script> -->
+	<script type="text/javascript">
 window.addEventListener('load', function() {
 
 
@@ -147,11 +165,19 @@ fetch("https://apis.datos.gob.ar/georef/api/provincias")
 
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 
 
 
-  </body>
+</body>
 </html>

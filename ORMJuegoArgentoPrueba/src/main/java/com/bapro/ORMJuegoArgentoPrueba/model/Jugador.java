@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "jugadores")
@@ -15,24 +19,43 @@ public class Jugador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotNull(message= "Nombre invalido, debe tener entre 2 y 20  letras")
+	@Size (min=2, max=20)
 	@Column(nullable = false)
 	private String nombre;
 	
+	@NotNull(message= "Apellido invalido, debe tener entre 2 y 20  letras")
+	@Size (min=2, max=20)
 	@Column(nullable = false)
 	private String apellido;
 	
+	@Email
 	@Column(nullable = false, unique = true)
+	//@Pattern (regexp = ahi va la expresion regular)
 	private String email;
 	
+	@NotNull(message= "Apodo invalido, debe tener entre 2 y 20  letras")
+	@Size (min=2, max=20)
 	@Column(nullable = false, unique = true)
 	private String apodo;
 	
-	
+	@Column(nullable = false)
 	private String provincia;
 	
+	@Column
+	@NotNull(message= "Nombre invalido, debe tener entre 2 y 20  letras")
+	@Size (min=2, max=20)
+	private String contraseña;
+	
+	
+	@NotNull(message= "Campo invalido, debe tener por lo menos 3 caracteres")
+	@Size (min=2, max= 20)
 	private String ciudad;
 	
-	
+	@Column
+	@NotNull(message= "Nombre invalido, debe tener entre 2 y 20  letras")
+	@Size (min=2, max=20)
+	private String contraseña2;
 
 	
 	
@@ -42,7 +65,7 @@ public class Jugador {
 	}
 	
 	public Jugador(Integer id, String nombre, String apellido, String email, String apodo, String provincia,
-			String ciudad) {
+			String ciudad, String contraseña, String contraseña2) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -51,6 +74,8 @@ public class Jugador {
 		this.apodo = apodo;
 		this.provincia = provincia;
 		this.ciudad = ciudad;
+		this.contraseña = contraseña;
+		this.contraseña2 = contraseña2;
 		
 	}
 
@@ -108,6 +133,22 @@ public class Jugador {
 
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
+	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	
+	public String getContraseña2() {
+		return contraseña;
+	}
+
+	public void setContraseña2(String contraseña2) {
+		this.contraseña2 = contraseña2;
 	}
 
 
