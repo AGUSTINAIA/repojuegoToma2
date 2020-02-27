@@ -36,6 +36,12 @@ public class HtmlController {
 		return "./PreguntaYRespuesta/preguntas_respuestas.html";
 	}
 	
+//	@GetMapping("formulario_preguntas")
+//	public String irAlFormularioDePreguntas() {
+//		return "./formulario_preguntas/formulario_preguntas";
+//	}
+	
+	
 	@PostMapping("pyr")
 	public String postPreguntaYRespuesta() {
 		System.out.println("Holaaaa");

@@ -32,7 +32,7 @@ public class JugadorController {
 		
 			return "./registro/registro";
 		}
-		
+	
 		Jugador jugadorNuevo = jugadorJpaRepositorio.save(unJugador);
 		return "./registroExitoso/registro_exitoso";
 	}
