@@ -29,7 +29,7 @@ public class Respuesta {
 	private Boolean esCorrecta;
 	
 	@ManyToOne
-	@JoinColumn(name = "pregunta_id", nullable= false, updatable = false)
+	@JoinColumn(name ="pregunta_id", nullable= false, updatable = false)
 	private Pregunta pregunta;
 	
 	public Respuesta() {

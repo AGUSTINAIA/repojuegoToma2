@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scalable=1">
+<title>Formulario Preguntas</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/formulario_preguntas.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap"
+	rel="stylesheet">
+
+</head>
+<body>
+	<div class="container-fluid contenedor">
+
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a href="home.html"> <img src="imagenes/logo.png" alt="logo"
+					class="logo">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><a class="nav-link"
+							href="registro">REGISTRATE <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="login">LOGIN</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="faqs">PREGUNTAS
+								FRECUENTES</a></li>
+					</ul>
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search"
+							placeholder="¿Qué buscas?" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+					</form>
+				</div>
+			</nav>
+		</header>
+
+		<main class="row">
+			<form method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="inputPregunta">Pregunta</label> <input type="text"
+							class="form-control" id="inputPregunta"
+							placeholder="Ingrese el texto de la Pregunta" name="enunciado">
+					</div>
+					<div class="form-group col-md-12">
+						<label for="inputTema">Tema</label> 
+						<select id="inputTema" name="tema_id">
+							<option th:each="unTema : ${misTemas}" th:text="${unTema.nombre}" th:value="${unTema.id}"></option>
+						</select>
+						<!-- <input type="text" class="form-control" id="inputTema" placeholder="Ingrese el Tema" name="tema"> -->
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputRespuesta1">Respuesta 1</label> <input type="text"
+						class="form-control" id="inputRespuesta1"
+						placeholder="Ingrese opción 1" name="opcion1">
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<label class="form-check-label" for="gridCheck"> Correcta </label>
+				</div>
+				<div class="form-group">
+					<label for="inputRespuesta2">Respuesta 2</label> <input type="text"
+						class="form-control" id="inputRespuesta2"
+						placeholder="Ingrese opción 2" name="opcion2">
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<label class="form-check-label" for="gridCheck"> Correcta </label>
+				</div>
+				<div class="form-group">
+					<label for="inputRespuesta3">Respuesta 3</label> <input type="text"
+						class="form-control" id="inputRespuesta2"
+						placeholder="Ingrese opción 3" name="opcion3">
+				</div>
+				<div class="form-group">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="gridCheck">
+						<label class="form-check-label" for="gridCheck"> Correcta
+						</label>
+					</div>
+					<div class="form-group">
+						<label for="inputPuntaje">Puntaje</label> <input type="number"
+							min="0" max="20" step="1" class="form-control" id="inputPuntaje"
+							name="puntaje">
+					</div>
+				</div>
+
+
+				<button type="submit" class="btn btn-primary">Ingresar
+					Pregunta</button>
+			</form>
+
+		</main>
+
+		<footer class="row">
+			<div class="col-12 footer">Grupo9DHCopyright2019 - Todos los
+				derechos reservados.</div>
+		</footer>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

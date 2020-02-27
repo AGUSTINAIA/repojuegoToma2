@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -34,7 +36,9 @@ public class Pregunta {
 	private String enunciado;
 	
 	@NotNull(message= "Debe asignar un puntaje a la pregunta")
-	@Size(min=0, max=20)
+//	@Size(min=0, max=20)
+	@Min(value=0)
+	@Max(value=20)
 	@Column(nullable = false)
 	private Integer puntaje;
 	

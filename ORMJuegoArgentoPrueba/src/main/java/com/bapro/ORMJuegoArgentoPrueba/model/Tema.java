@@ -22,7 +22,7 @@ public class Tema {
 	//private List<Pregunta> preguntasDelTema;
 	
 	@Column(nullable = false)
-	private String tema;
+	private String nombre;
 	
 	@Column(nullable = false)
 	private String descripcion;
@@ -31,9 +31,9 @@ public class Tema {
 		
 	}
 	
-	public Tema(String tema) {
+	public Tema(String nombre) {
 	//	preguntasDelTema = new ArrayList <Pregunta> ();
-		this.tema = tema;
+		this.nombre = nombre;
 	}
 
 	public Integer getId() {
@@ -52,12 +52,12 @@ public class Tema {
 //		this.preguntasDelTema = preguntasDelTema;
 //	}
 
-	public String getTema() {
-		return tema;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setTema(String tema) {
-		this.tema = tema;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getDescripcion() {
