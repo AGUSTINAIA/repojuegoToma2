@@ -37,7 +37,7 @@ public class RespuestaRestController {
 	}
 	
 	@PostMapping("")
-	public Respuesta InserRespuesta(@RequestBody Respuesta respuestaARegistrar) {
+	public Respuesta insertRespuesta(@RequestBody Respuesta respuestaARegistrar) {
 		Respuesta respuestaRegistrada = RespuestaJpaRepositorio.save(respuestaARegistrar);
 		return respuestaRegistrada;
 	}

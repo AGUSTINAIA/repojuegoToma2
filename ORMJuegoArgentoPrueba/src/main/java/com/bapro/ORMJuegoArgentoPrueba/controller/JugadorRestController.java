@@ -20,29 +20,29 @@ import com.bapro.ORMJuegoArgentoPrueba.repository.JugadorJpaRepositorio;
 public class JugadorRestController {
 
 	@Autowired
-	private JugadorJpaRepositorio JugadorJpaRepositorio;
+	private JugadorJpaRepositorio jugadorJpaRepositorio;
 	
 	@GetMapping("")
 	public List<Jugador> getJugadores(){
-		List<Jugador> jugadores = JugadorJpaRepositorio.findAll();
+		List<Jugador> jugadores = jugadorJpaRepositorio.findAll();
 		return jugadores;
 	}
 	
 	@GetMapping("{id}")
-	public Jugador getJugadoryId(@PathVariable ("id") Integer id) {
-		Optional<Jugador> jugadorPorId = JugadorJpaRepositorio.findById(id);
+	public Jugador getJugadorById(@PathVariable ("id") Integer id) {
+		Optional<Jugador> jugadorPorId = jugadorJpaRepositorio.findById(id);
 		return jugadorPorId.get();
 	}
 	
 	@PostMapping("")
-	public Jugador InserJugador(@RequestBody Jugador jugadorARegistrar) {
-		Jugador jugadorRegistrado = JugadorJpaRepositorio.save(jugadorARegistrar);
+	public Jugador insertJugador(@RequestBody Jugador jugadorARegistrar) {
+		Jugador jugadorRegistrado = jugadorJpaRepositorio.save(jugadorARegistrar);
 		return jugadorRegistrado;
 	}
 	
 	@DeleteMapping("{id}")
 	public void deleteJugador (@PathVariable("id") Integer id) {
-		JugadorJpaRepositorio.deleteById(id);
+		jugadorJpaRepositorio.deleteById(id);
 		
 	}
 }

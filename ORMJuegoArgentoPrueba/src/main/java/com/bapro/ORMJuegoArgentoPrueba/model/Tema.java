@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,23 +20,29 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-
-	//private List<Pregunta> preguntasDelTema;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="tema")
+	private List<Pregunta> preguntasDelTema;
 	
 	@Column(nullable = false)
 	private String nombre;
 	
-	@Column(nullable = false)
-	private String descripcion;
+	
 	
 	public Tema() {
 		
 	}
 	
-	public Tema(String nombre) {
-	//	preguntasDelTema = new ArrayList <Pregunta> ();
+	
+
+	public Tema(Integer id, String nombre ) {
+		
+		this.id = id;
+		this.preguntasDelTema = new ArrayList <Pregunta> ();;
 		this.nombre = nombre;
+	
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -44,13 +52,13 @@ public class Tema {
 		this.id = id;
 	}
 
-//	public List<Pregunta> getPreguntasDelTema() {
-	//	return preguntasDelTema;
-//	}
+	public List<Pregunta> getPreguntasDelTema() {
+		return preguntasDelTema;
+	}
 
-//	public void setPreguntasDelTema(List<Pregunta> preguntasDelTema) {
-//		this.preguntasDelTema = preguntasDelTema;
-//	}
+	public void setPreguntasDelTema(List<Pregunta> preguntasDelTema) {
+		this.preguntasDelTema = preguntasDelTema;
+		}
 
 	public String getNombre() {
 		return nombre;
@@ -60,13 +68,7 @@ public class Tema {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	
 
 	
 

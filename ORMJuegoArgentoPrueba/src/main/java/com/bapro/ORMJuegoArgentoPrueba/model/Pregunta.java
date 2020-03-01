@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,8 +22,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
-@Entity (name="pregunta")
-@Table(name = "preguntas")
+@Entity (name = "pregunta")
+@Table(name = "Preguntas")
 public class Pregunta {
 
 	@Id
@@ -42,27 +43,27 @@ public class Pregunta {
 	@Column(nullable = false)
 	private Integer puntaje;
 	
-	//@OneToMany(mappedBy = "pregunta" cascade = CascadeType.ALL, orphanRemoval =true)
-	//private List<Respuesta> lasOpciones;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="unaPregunta")
+	private List<Respuesta> lasOpciones;
 	
 	
 	
 	
-	@OneToOne
-	@JoinColumn (name = "tema_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tema_id")
 	private Tema tema;
 	
 	
 	public Pregunta () {
-	//  lasOpciones = new ArrayList<Respuesta>();
+		
 	}
 
-	public Pregunta(Integer id, String enunciado, Integer puntaje) {
-		
+	public Pregunta(Integer id, String enunciado, Integer puntaje, Tema tema) {
+		this.lasOpciones = new ArrayList<Respuesta>();
 		this.id = id;
 		this.enunciado = enunciado;
 		this.puntaje = puntaje;
-		
+		this.tema= tema;
 		
 	}
 
@@ -90,7 +91,24 @@ public class Pregunta {
 		this.puntaje = puntaje;
 	}
 
+	public List<Respuesta> getLasOpciones() {
+		return lasOpciones;
+	}
 
+	public void setLasOpciones(List<Respuesta> lasOpciones) {
+		this.lasOpciones = lasOpciones;
+	}
+
+	public void addRespuesta(Respuesta unaRespuesta) {
+		lasOpciones.add(unaRespuesta);
+	}
+
+    public List<Respuesta> getCorrectAnswers() {
+       return (List<Respuesta>) this.getLasOpciones()
+               .stream()
+               .filter(Respuesta -> Respuesta.getEsCorrecta().equals(true))
+               .collect(Collectors.toList());
+    }
 /* esto es lo que agrego JC
  
 	void addRespuestas (Respuesta unaRespuesta) {
@@ -98,17 +116,18 @@ public class Pregunta {
 		unaRespuesta.setPregunta(this);
 	}
 
-    public List<Respuesta> getRespuestas() {
-        return this.lasOpciones;
-    }
+  
 
-    public List<Respuesta> getCorrectAnswers() {
-       return (List<Respuesta>) this.getRespuestas()
-               .stream()
-               .filter(Respuesta -> Respuesta.getCorrect().equals(true))
-               .collect(Collectors.toList());
-    }
+ 
 	*/
+
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 	
 	
 

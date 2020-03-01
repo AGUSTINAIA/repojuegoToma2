@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scalable=1">
-<title>Formulario Preguntas</title>
+<title>Formulario Respuestas</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="/css/formulario_preguntas.css">
+<link rel="stylesheet" href="/css/formulario_respuestas.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap"
 	rel="stylesheet">
@@ -52,20 +52,30 @@
 			<form method="POST">
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label for="inputPregunta">Pregunta</label>
+						<label for="inputRespuesta">Respuesta</label>
 						 <input type="text"
-							class="form-control" id="inputPregunta"
-							placeholder="Ingrese el texto de la Pregunta" name="enunciado">
+							class="form-control" id="inputRespuesta"
+							placeholder="Ingrese el texto de la Respuesta" name="unaRespuesta">
 					</div>
-					
-					  <div class="form-group col-md-12">
-						<label for="inputIdTema">id_tema</label>
-						 <input type="number"
-							class="form-control" id="inputIdTema" min="1" max="6" step="1"
-							placeholder="Ingrese el numero de tema" name="tema">
+					<div class="form-group col-md-12">
+						<label for="inputCorrecta">¿Es correcta?</label>
+						<br>
+						<span>True</span>
+						 <input type="radio" 
+							class="form-control" id="inputCorrecta"
+							placeholder="Ingrese true o false" name="esCorrecta" value="true"> 
+							<span>False</span>
+							<input type="radio" 
+							class="form-control" id="inputCorrecta"
+							placeholder="Ingrese true o false" name="esCorrecta" value="false">
 					</div>
-		 
 
+		  <div class="form-group col-md-12">
+						<label for="inputIdPregunta">id_pregunta</label>
+						 <input type="number"
+							class="form-control" id="inputIdPregunta"
+							placeholder="Ingrese el numero de pregunta" name="unaPregunta">
+					</div>
 		 
 					<!-- <div class="form-group col-md-12">
 						<label for="inputTema">Tema</label> 
@@ -106,16 +116,11 @@
 						<label class="form-check-label" for="gridCheck"> Correcta
 						</label>
 					</div> -->
-					<div class="form-group">
-						<label for="inputPuntaje">Puntaje</label> <input type="number"
-							min="0" max="20" step="1" class="form-control" id="inputPuntaje"
-							name="puntaje">
-					</div>
-				</div>
+					
 
 
 				<button type="submit" class="btn btn-primary">Ingresar
-					Pregunta</button>
+					Respuesta</button>
 			</form>
 
 		</main>

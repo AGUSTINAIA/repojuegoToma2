@@ -27,26 +27,24 @@ public class HtmlController {
 		return "./registroExitoso/registro_exitoso";
 	}
 	
-	@GetMapping("partida")
-	public String irAPartida() {
-		return "./partida/comienzo_de_partida";
-	}
-	@GetMapping("pyr")
-	public String irAPreguntaYRespuesta() {
-		return "./PreguntaYRespuesta/preguntas_respuestas.html";
-	}
+	
+	
+//	@GetMapping("PreguntaYRespuesta")
+//	public String irAPreguntaYRespuesta() {
+//		return "./PreguntaYRespuesta/preguntas_respuestas";
+//	}
 	
 //	@GetMapping("formulario_preguntas")
 //	public String irAlFormularioDePreguntas() {
 //		return "./formulario_preguntas/formulario_preguntas";
 //	}
 	
-	
-	@PostMapping("pyr")
-	public String postPreguntaYRespuesta() {
-		System.out.println("Holaaaa");
-		return "./PreguntaYRespuesta/preguntas_respuestas.html";
-	}
-	
+//	
+//	@PostMapping("pyr")
+//	public String postPreguntaYRespuesta() {
+//		System.out.println("Holaaaa");
+//		return "./PreguntaYRespuesta/preguntas_respuestas";
+//	}
+//	
 	
 }

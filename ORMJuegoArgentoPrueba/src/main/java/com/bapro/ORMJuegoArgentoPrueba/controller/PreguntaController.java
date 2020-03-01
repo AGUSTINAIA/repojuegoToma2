@@ -1,6 +1,6 @@
 package com.bapro.ORMJuegoArgentoPrueba.controller;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,15 +24,15 @@ public class PreguntaController {
 	
 		@Autowired
 		private PreguntaJpaRepositorio preguntaJpaRepositorio;
-		@Autowired
-		private TemaJpaRepositorio temaJpaRepositorio;
+		//@Autowired
+		//private TemaJpaRepositorio temaJpaRepositorio;
 		
 	
 		
 		@GetMapping("formulario_pregunta")
 		public String irAlFormularioPreguntas (Model model) {
-			List<Tema> listadoDeTemas = temaJpaRepositorio.findAll();
-			model.addAttribute("misTemas", listadoDeTemas);
+			//List<Tema> listadoDeTemas = temaJpaRepositorio.findAll();
+			//model.addAttribute("pregunta", new Pregunta());
 			return "./formulario_preguntas/formulario_preguntas";
 		}
 		
