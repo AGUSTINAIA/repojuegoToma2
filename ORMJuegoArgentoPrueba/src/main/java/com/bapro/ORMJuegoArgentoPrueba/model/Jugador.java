@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,8 +20,8 @@ public class Jugador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotNull(message= "Nombre invalido, debe tener entre 2 y 20  letras")
-	@Size (min=2, max=20)
+	@NotEmpty(message= "Este campo no puede estar vacio")
+	@Size (min=2, max=20, message= "Nombre invalido, debe tener entre 2 y 20  letras")
 	@Column(nullable = false)
 	private String nombre;
 	
@@ -57,7 +58,11 @@ public class Jugador {
 	@Size (min=2, max=20)
 	private String contraseña2;
 
+	@Column
+	private Integer vidas=3;
 	
+	@Column
+	private Integer puntos=0;
 	
 	
 	public Jugador() {
@@ -76,6 +81,7 @@ public class Jugador {
 		this.ciudad = ciudad;
 		this.contraseña = contraseña;
 		this.contraseña2 = contraseña2;
+		
 		
 	}
 
@@ -150,6 +156,23 @@ public class Jugador {
 	public void setContraseña2(String contraseña2) {
 		this.contraseña2 = contraseña2;
 	}
+
+	public Integer getVidas() {
+		return vidas;
+	}
+
+	public void setVidas(Integer vidas) {
+		this.vidas = vidas;
+	}
+
+	public Integer getPuntos() {
+		return puntos;
+	}
+
+	public void setPuntos(Integer puntos) {
+		this.puntos = puntos;
+	}
+	
 
 
 	

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scalable=1">
     <title>Preguntas_respuestas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/preguntas_respuestas.css">
+    <link rel="stylesheet" href="/css/preguntas_respuestas.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap" rel="stylesheet">
 
   </head>
@@ -57,7 +57,7 @@
                 <input type="radio" th:id="'respuesta_' + ${respuesta.id}" name="respuesta" th:value="${respuesta.id}" />
             </div>
             <div class="col-8">
-                <label th:text="${respuesta.enunciado}" th:for="'respuesta_' + ${respuesta.id}"></label>
+                <label th:text="${respuesta.unaRespuesta}" th:for="'respuesta_' + ${respuesta.id}"></label>
             </div>
         </div>
             

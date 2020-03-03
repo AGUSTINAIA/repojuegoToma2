@@ -12,11 +12,11 @@ public class HtmlController {
 		return "./home/home";
 	}
 	
-	@GetMapping("login")
-	public String irAlLogin() {
-		return "./login/login";
-	}
-	
+//	@GetMapping("login")
+//	public String irAlLogin() {
+//		return "./login/login";
+//	}
+//	
 	@GetMapping("faqs")
 	public String irAPreguntas() {
 		return "./preguntas/preguntas";
