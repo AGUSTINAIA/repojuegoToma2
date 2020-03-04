@@ -20,15 +20,13 @@ public class Partida {
 @Column
  private Integer id;
  
-@Column
- private String tipoDePartida;
+
 
 //no se si vamos a almacenar las preguntas de la partida. creo que no es necesario
 //@OneToMany(fetch=FetchType.LAZY, mappedBy="unaPregunta")
 // private List<Pregunta> arrayDePreguntas;
 
-@Column
- private Integer puntos;
+
  
  @OneToOne
  @JoinColumn(name = "jugador_id")
@@ -43,8 +41,7 @@ public Partida() {
 public Partida(Integer id, String tipoDePartida, Integer puntos, Jugador unJugador) {
 	
 	this.id = id;
-	this.tipoDePartida = tipoDePartida;
-	this.puntos = puntos;
+
 	this.unJugador = unJugador;
 	//this.arrayDePreguntas= new ArrayList<Pregunta>();
 }
@@ -60,21 +57,7 @@ public void setId(Integer id) {
 	this.id = id;
 }
 
-public String getTipoDePartida() {
-	return tipoDePartida;
-}
 
-public void setTipoDePartida(String tipoDePartida) {
-	this.tipoDePartida = tipoDePartida;
-}
-
-public Integer getPuntos() {
-	return puntos;
-}
-
-public void setPuntos(Integer puntos) {
-	this.puntos = puntos;
-}
 
 public Jugador getUnJugador() {
 	return unJugador;

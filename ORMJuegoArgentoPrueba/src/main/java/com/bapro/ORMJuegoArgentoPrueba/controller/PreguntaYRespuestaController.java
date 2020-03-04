@@ -62,7 +62,12 @@ public class PreguntaYRespuestaController {
 
     @GetMapping("jugar")
     public String getPreguntaRespuesta( Model model)
+    
     {
+
+    	
+    	
+    	
     	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(10);
      
         	Jugador unJugador= optionalJugador.get();
@@ -73,6 +78,8 @@ public class PreguntaYRespuestaController {
     			
     			Optional<Tema> optionalTema = this.temaJpaRepositorio.findById(n);
     			Tema unTema= optionalTema.get();
+    			
+    			//this.temaJpaRepositorio.count();
     			
     			Random miAleatorioPregunta = new Random();
     			Integer p = miAleatorioPregunta.nextInt(unTema.getPreguntasDelTema().size());

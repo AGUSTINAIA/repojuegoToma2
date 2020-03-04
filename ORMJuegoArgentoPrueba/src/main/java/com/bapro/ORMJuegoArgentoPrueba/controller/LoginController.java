@@ -23,7 +23,7 @@ public class LoginController {
 	public String irAlLogin() {
 	return "./login/login";
 	}
-	@PostMapping("/")
+	@PostMapping("")
 	public String comprobarLogin(Model model, Jugador jugador) {
 	String mailIngresado = jugador.getEmail();
 	String contraseñaIngresada = jugador.getContraseña();
@@ -34,10 +34,14 @@ public class LoginController {
 	}
 	if (jugadorEncontrado.getContraseña().equals(contraseñaIngresada)) {
 			model.addAttribute("email", jugadorEncontrado.getEmail());
+						
 	return "./partida/comienzo_de_partida";
-	}else
+	
+	}
+	
+	else
 	{
-	return "./Home/home";
+	return "./login/login";
 	}
 	}
 
