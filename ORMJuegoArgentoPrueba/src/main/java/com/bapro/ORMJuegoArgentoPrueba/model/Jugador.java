@@ -172,6 +172,14 @@ public class Jugador {
 	public void setPuntos(Integer puntos) {
 		this.puntos = puntos;
 	}
+	public void acumularPuntos() {
+		puntos= puntos + 5;
+		
+	}
+	public void restarVidas() {
+		vidas=vidas-1;
+		
+	}
 	
 
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bapro.ORMJuegoArgentoPrueba.model.Jugador;
 import com.bapro.ORMJuegoArgentoPrueba.model.Pregunta;
@@ -28,33 +29,25 @@ import com.bapro.ORMJuegoArgentoPrueba.services.PreguntaService;
 import com.bapro.ORMJuegoArgentoPrueba.services.RespuestaService;
 
 
+
 @Controller
 @RequestMapping 
 public class PreguntaYRespuestaController {
 
-	
+	@Autowired
     private PreguntaService preguntaService;
-	
+	@Autowired
     private RespuestaService respuestaService;
-    
+	@Autowired
     private JugadorJpaRepositorio jugadorJpaRepositorio;
-
+	@Autowired
     private TemaJpaRepositorio temaJpaRepositorio;
-    
+	@Autowired
     private PreguntaJpaRepositorio preguntaJpaRepositorio;
-    
+	@Autowired
     private RespuestaJpaRepositorio respuestaJpaRepositorio;
 
-    public PreguntaYRespuestaController(PreguntaService preguntaService, RespuestaService respuestaService
-    		, JugadorJpaRepositorio jugadorJpaRepositorio, TemaJpaRepositorio temaJpaRepositorio,PreguntaJpaRepositorio preguntaJpaRepositorio, RespuestaJpaRepositorio respuestaJpaRepositorio)
-    {
-        this.preguntaService = preguntaService;
-        this.respuestaService = respuestaService;
-        this.jugadorJpaRepositorio =  jugadorJpaRepositorio;
-        this.temaJpaRepositorio= temaJpaRepositorio;
-        this.preguntaJpaRepositorio= preguntaJpaRepositorio;
-        this.respuestaJpaRepositorio= respuestaJpaRepositorio;
-    }
+    
 //    @GetMapping ("jugar")
 //    public String irAPreguntaYRespuesta(Model model) {
 //   	return "./PreguntaYRespuesta/preguntas_respuestas";
@@ -65,8 +58,7 @@ public class PreguntaYRespuestaController {
     
     {
 
-    	
-    	
+    	    	
     	
     	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(10);
      
@@ -74,10 +66,11 @@ public class PreguntaYRespuestaController {
         	
         	if (unJugador.getVidas()> 0 ) {
         		Random miAleatorioTema = new Random();
-    			Integer n = miAleatorioTema.nextInt(6);
+    			Integer n = (miAleatorioTema.nextInt(5))+1;
     			
     			Optional<Tema> optionalTema = this.temaJpaRepositorio.findById(n);
     			Tema unTema= optionalTema.get();
+    			model.addAttribute("tema", unTema);
     			
     			//this.temaJpaRepositorio.count();
     			
@@ -94,13 +87,60 @@ public class PreguntaYRespuestaController {
             return "./PreguntaYRespuesta/not-found";
         }
     }
+    
+    
+//
+//    @PostMapping("jugar")
+//    public String elegirRespuesta( Pregunta pregunta, @ModelAttribute("respuesta") Respuesta respuesta, Model model)
+//    {
+//  
+//       return "./PreguntaYRespuesta/question-answered";
+//       
+//    }
 
-    @PostMapping("jugar")
-    public String elegirRespuesta( Pregunta pregunta, @ModelAttribute("respuesta") Respuesta respuesta, Model model)
-    {
-    	
-       return "./PreguntaYRespuesta/question-answered";
-       
-    }
-
+//    @PostMapping("jugar")
+//    public String responderPregunta( Pregunta pregunta, @ModelAttribute("respuesta") Respuesta respuesta, Model model)
+//    {
+//        try {
+//        	Pregunta preguntaAleatoria = this.preguntaService.findById(pregunta.getId());
+//            Respuesta respuestaElegida = this.respuestaService.findById(respuesta.getId());
+//
+//            Boolean correct = this.preguntaService.isCorrectAnswer(pregunta, respuesta);
+//
+//            model.addAttribute("pregunta", preguntaAleatoria);
+//            model.addAttribute("respuesta", respuestaElegida);
+//            model.addAttribute("correct", correct);
+//
+//            return "./PreguntaYRespuesta/question-answered";
+//        } catch (Exception e) {
+//            return "./PreguntaYRespuesta/not-found";
+//        }
+//    }
+	@PostMapping("jugar")
+	public String comprobarRespuesta(Model model,  Respuesta respuesta, RedirectAttributes redirAttrs) {
+		Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(10);
+	     
+    	Jugador unJugador= optionalJugador.get();
+		
+		
+	Boolean respuestaIngresada= respuesta.getEsCorrecta();
+	Integer respuestaIngresadaId= respuesta.getId();
+	Optional<Respuesta> respuestaOp= respuestaJpaRepositorio.findById(respuestaIngresadaId);
+	Respuesta respuestaEncontrada= respuestaOp.get();
+	
+	
+	if (respuestaEncontrada.getEsCorrecta()== true) {
+			unJugador.acumularPuntos();
+			System.out.println(unJugador.getPuntos());
+			redirAttrs.addFlashAttribute("mensaje", "Bien! tu respuesta es correcta! sumaste puntos! Siguiente Pregunta...");	
+	return "redirect:/jugar";
+	
+	}
+	else
+	{
+		unJugador.restarVidas();
+		redirAttrs.addFlashAttribute("mensaje", ":/ Respuesta incorrecta... Perdiste una Vida, pero segui jugando!");
+	return "redirect:/jugar";
+	}
+	}
 }

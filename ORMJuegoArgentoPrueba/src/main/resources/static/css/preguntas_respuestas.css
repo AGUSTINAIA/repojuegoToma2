@@ -80,9 +80,9 @@ main{
   margin-top: 10px;
 }
 
-.tema h3{
-  width:20px;
-  word-wrap: break-word;
+.tema h4{
+  width:80px;
+  
   text-align:center;
   margin: auto;
   margin-top: 20px;
