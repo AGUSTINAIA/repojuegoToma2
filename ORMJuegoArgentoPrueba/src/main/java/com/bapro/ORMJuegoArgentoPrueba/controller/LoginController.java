@@ -16,34 +16,31 @@ public class LoginController {
 
 	@Autowired
 	private JugadorJpaRepositorio JugadorJpaRepositorio;
-	
-	
-	
-	@GetMapping ("")
+
+	@GetMapping("")
 	public String irAlLogin() {
-	return "./login/login";
-	}
-	@PostMapping("")
-	public String comprobarLogin(Model model, Jugador jugador) {
-	String mailIngresado = jugador.getEmail();
-	String contraseñaIngresada = jugador.getContraseña();
-	Jugador jugadorEncontrado = JugadorJpaRepositorio.findByEmail(mailIngresado);
-	
-	if (jugadorEncontrado == null) {
-	return "./Home/home";
-	}
-	if (jugadorEncontrado.getContraseña().equals(contraseñaIngresada)) {
-			model.addAttribute("email", jugadorEncontrado.getEmail());
-						
-	return "./partida/comienzo_de_partida";
-	
-	}
-	
-	else
-	{
-	return "./login/login";
-	}
+		return "./login/login";
 	}
 
-	
+	@PostMapping("")
+	public String comprobarLogin(Model model, Jugador jugador) {
+		String mailIngresado = jugador.getEmail();
+		String contraseñaIngresada = jugador.getContraseña();
+		Jugador jugadorEncontrado = JugadorJpaRepositorio.findByEmail(mailIngresado);
+
+		if (jugadorEncontrado == null) {
+			return "redirect:/home";
+		}
+		if (jugadorEncontrado.getContraseña().equals(contraseñaIngresada)) {
+			model.addAttribute("jugadorId", jugadorEncontrado.getId());
+			
+			return "redirect:/partida";
+
+		}
+
+		else {
+			return "./login/login";
+		}
+	}
+
 }

@@ -9,5 +9,5 @@ import com.bapro.ORMJuegoArgentoPrueba.model.Jugador;
 public interface JugadorJpaRepositorio extends JpaRepository<Jugador, Integer> {
 
 	Jugador findByEmail(String email);
-//	Jugador findByApodo (String apodo);
+	
 }

@@ -34,11 +34,11 @@ private PartidaJpaRepositorio partidaJpaRepositorio;
 		return partidaPorId.get();
 	}
 	
-	@PostMapping("")
-	public Partida insertPartida(@RequestBody Partida partidaARegistrar) {
-		Partida partidaRegistrada = partidaJpaRepositorio.save(partidaARegistrar);
-		return partidaRegistrada;
-	}
+//	@PostMapping("")
+//	public Partida insertPartida(@RequestBody Partida partidaARegistrar) {
+//		Partida partidaRegistrada = partidaJpaRepositorio.save(partidaARegistrar);
+//		return partidaRegistrada;
+//	}
 	
 	@DeleteMapping("{id}")
 	public void deletePartida (@PathVariable("id") Integer id) {

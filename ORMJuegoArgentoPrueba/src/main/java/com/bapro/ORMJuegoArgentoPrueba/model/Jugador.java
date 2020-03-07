@@ -1,13 +1,20 @@
 package com.bapro.ORMJuegoArgentoPrueba.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -20,23 +27,23 @@ public class Jugador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotEmpty(message= "Este campo no puede estar vacio")
-	@Size (min=2, max=20, message= "Nombre invalido, debe tener entre 2 y 20  letras")
+	@NotBlank(message= "Este campo no puede estar vacio")
+	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	@Column(nullable = false)
 	private String nombre;
 	
-	@NotNull(message= "Apellido invalido, debe tener entre 2 y 20  letras")
-	@Size (min=2, max=20)
+	@NotBlank(message="Este campo no puede estar vacio")
+	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	@Column(nullable = false)
 	private String apellido;
 	
 	@Email
 	@Column(nullable = false, unique = true)
-	//@Pattern (regexp = ahi va la expresion regular)
+	
 	private String email;
 	
-	@NotNull(message= "Apodo invalido, debe tener entre 2 y 20  letras")
-	@Size (min=2, max=20)
+	@NotBlank(message="Este campo no puede estar vacio")
+	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	@Column(nullable = false, unique = true)
 	private String apodo;
 	
@@ -44,26 +51,24 @@ public class Jugador {
 	private String provincia;
 	
 	@Column
-	@NotNull(message= "Nombre invalido, debe tener entre 2 y 20  letras")
-	@Size (min=2, max=20)
+	@NotBlank(message= "Este campo no puede estar vacio")
+	@Size (min=2, max=8, message= "Debe tener entre 2 y 8 caracteres")
 	private String contraseña;
 	
 	
-	@NotNull(message= "Campo invalido, debe tener por lo menos 3 caracteres")
-	@Size (min=2, max= 20)
+	@NotBlank(message="Este campo no puede estar vacio" )
+	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	private String ciudad;
 	
 	@Column
-	@NotNull(message= "Nombre invalido, debe tener entre 2 y 20  letras")
-	@Size (min=2, max=20)
+	@NotBlank(message= "Este campo no puede estar vacio")
+	@Size (min=2, max=8, message= "Debe tener entre 2 y 8 caracteres")
 	private String contraseña2;
 
-	@Column
-	private Integer vidas=3;
+
 	
-	@Column
-	private Integer puntos=0;
-	
+//	@OneToMany(fetch=FetchType.LAZY, mappedBy="jugador")
+//	private List<Partida> listaDePartidas;
 	
 	public Jugador() {
 		
@@ -157,29 +162,7 @@ public class Jugador {
 		this.contraseña2 = contraseña2;
 	}
 
-	public Integer getVidas() {
-		return vidas;
-	}
-
-	public void setVidas(Integer vidas) {
-		this.vidas = vidas;
-	}
-
-	public Integer getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
-	}
-	public void acumularPuntos() {
-		puntos= puntos + 5;
-		
-	}
-	public void restarVidas() {
-		vidas=vidas-1;
-		
-	}
+	
 	
 
 

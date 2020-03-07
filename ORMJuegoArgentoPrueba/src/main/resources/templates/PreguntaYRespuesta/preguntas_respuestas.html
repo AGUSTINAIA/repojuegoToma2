@@ -44,6 +44,7 @@
                     
           
   <form  method="post" th:object="${pregunta}" modelAtributte= "" >
+  <input type="hidden" th:value="${idJugador}">
       <div class="tema">
             <h1 th:if= "${mensaje != null}" th:text="${mensaje}"></h1>
             </div>
@@ -66,28 +67,11 @@
             </div>
         </div>
             
-            <!-- <div class="opcion1">
-              <h4>texto opcion 1</h4>
-
-            </div>
-            <div class="opcion2">
-              <h4>texto opcion 2</h4>
-            </div>
-            <div class="opcion3">
-              <h4>texto opcion 3</h4>
-            </div> -->
+           
              <button th:type="'submit'" th:text="'Enviar'" class="btn btn-primary"></button>
           </div>
     </form>
-         <!--   <aside class="datos col-md-2 offset-md-1">
-            <ul>
-              <li>Usuario</li>
-              <li>vidas</li>
-              <li>Puntaje de Partida</li>
-              <li>Tu mejor puntaje</li>
-            </ul>
-          </aside> -->
-        
+           
       </main>
 
       <footer class="row">

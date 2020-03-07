@@ -1,10 +1,11 @@
 body{
-  background-image: url(/imagenes/fondo12.jpg);
+  background-image: url(/imagenes/fondo29.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  image-resolution: snap;
+ 	
+  /* image-resolution: snap; */
   width: 100%;
 }
 
@@ -71,48 +72,62 @@ main{
 
 }
 
-main div .logo{
+/* main div .logo{
 
   justify-content: center;
   padding-top: 30px;
   padding-left: 150px;
-}
+} */
 
 .desafio{
   padding-top: 50px;
 }
 
 h1 {
-    color:#1e4261;
+	text-align: center;
+    color:black;
     font-family: 'Satisfy', cursive;
-    font-size: 500%;
+    font-size: 750%;
     justify-content:flex-start;
     align-items: center;
-    margin-left: 0px;
+   	font-wieght: bold;
     margin-top: 70px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     transform: rotate(-5deg);
 
 }
 
 p{
-  color:#1e4261;
+   color:black;
   font-family: 'Satisfy', cursive;
   font-size: 250%;
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+ 
   margin-bottom: 15px;
 
 
 }
-
-
-.texto-boton{
-	color: white!important;
+main div h3 a{
+	color: black!important;
 }
 
+h3.logueate{
+	color:black!important;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+h3.logueate{
+	color:black;
+}
+
+	
+
+/* 
 .btn-primary{
   margin-left: 40%;
   margin-top: 30px;
@@ -129,7 +144,7 @@ main div .btn-primary:hover{
   border-color: #007bff!important;
   color: #007bff!important;
 }
-
+ */
 
 
 .footer{
@@ -198,9 +213,9 @@ main div .btn-primary:hover{
   }
 
 
-  main div .logo{
+ /*  main div .logo{
     padding-left: 30px;
-  }
+  } */
 
   .desafio{
     padding-top: 10px;

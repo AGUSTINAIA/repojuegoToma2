@@ -12,7 +12,7 @@
 </head>
 <header class="row">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a href="home.html"> <img src="imagenes/logo.png" alt="logo"
+		<a href="home"> <img src="imagenes/logo.png" alt="logo"
 			class="logo">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,14 +47,17 @@
 			<h1>¡Registrate y empezá a jugar!</h1>
 		</div>
 		<div class="form-row">
+		
 			<div class="col-12 col-md-4">
 				<label for="inputNombre">Nombre/s</label> 
 				<input th:field="*{nombre}"  name="nombre"
 					id="inputNombre" type="text" class="form-control valida-nombre"
-					placeholder="Nombre" value="" required> <span
+					placeholder="Nombre" value="" required> 
+					<span
 					class="errorNombre"></span>
 				<span class="errorNombre" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
 			</div>
+			
 			<div class="col-12 col-md-4">
 				<label for="inputApellido">Apellido</label> 
 				<input th:field="*{apellido}" id="inputApellido" name="apellido" type="text"
@@ -63,6 +66,8 @@
 				<span  class="errorApellido" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
 
 			</div>
+			
+			
 			<div class="col-12 col-md-4">
 				<label for="inputEmail">Email</label> <input id="inputEmail"
 					name=email type="text" class="email form-control"
@@ -71,6 +76,8 @@
 				<span class="errorEmail" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 
 			</div>
+			
+			
 			<div class="col-12 col-md-4">
 				<label for="inputApodo">Apodo</label>
 				<div class="input-group">
@@ -84,6 +91,9 @@
 					<span class="errorApodo" th:if="${#fields.hasErrors('apodo')}" th:errors="*{apodo}"></span>
  
 				</div>
+				</div>
+
+
 
 				<div class="col-12 col-md-4">
 					<label>Contraseña</label> <input type="password"  th:field="*{contraseña}"
@@ -92,6 +102,8 @@
 					<span class="errorContraseña" th:if="${#fields.hasErrors('contraseña')}"
 						th:errors="*{contraseña}"></span>
 				</div>
+				
+				
 				<div class="col-12 col-md-4">
 					<label>Reingresa tu Contraseña2</label> <input type="password"  th:field="*{contraseña2}"
 						class="form-control valida-recontraseña"
@@ -100,6 +112,7 @@
 					<span class="errorReContraseña" th:if="${#fields.hasErrors('contraseña2')}"
 						th:errors="*{contraseña2}"></span>
 
+				</div>
 				</div>
 				 
 				<div class="form-row">
@@ -114,6 +127,7 @@
 							<span class="errorProvincia"></span>
 						</select>
 					</div>
+					
 
 					<div class="col-12 col-md-6">
 						<label for="insertCiudad">Ciudad</label> <input id="insertCiudad" th:field="*{ciudad}"
@@ -122,6 +136,7 @@
 							class="errorCiudad"></span>
 							<span class="errorCiudad" th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></span>
  
+					</div>
 					</div>
 
 					<div class="form-group">
@@ -143,7 +158,7 @@
 
 	<!--  <script src= "javascript/registro.js" stype="text/javascript">
 
-    </script>  -->
+    </script>   -->
 	<script type="text/javascript">
 window.addEventListener('load', function() {
 
