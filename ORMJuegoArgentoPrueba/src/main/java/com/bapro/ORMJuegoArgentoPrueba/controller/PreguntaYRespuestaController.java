@@ -66,7 +66,7 @@ public class PreguntaYRespuestaController {
      
         //	Jugador unJugador= optionalJugador.get();
         	
-        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(5);
+        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(7);
         
         Partida unaPartida= optionalPartida.get();
         
@@ -99,7 +99,7 @@ public class PreguntaYRespuestaController {
 	//	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(5);
 	     
    // 	Jugador unJugador= optionalJugador.get();
-		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(5);
+		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(7);
 	        
 	        Partida unaPartida= optionalPartida.get();
 		
