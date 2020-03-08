@@ -61,14 +61,12 @@ public class PreguntaYRespuestaController {
     public String getPreguntaRespuesta( Model model)
     
     {
-
-    	    	
-    	
+    	    	    	
     	//Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(12);
      
         //	Jugador unJugador= optionalJugador.get();
         	
-        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(4);
+        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(5);
         
         Partida unaPartida= optionalPartida.get();
         
@@ -92,44 +90,16 @@ public class PreguntaYRespuestaController {
             return "./PreguntaYRespuesta/preguntas_respuestas";
             
         } else {
-            return "./PreguntaYRespuesta/preguntas_respuestas";
+            return "redirect:/reiniciarPartida";
         }
     }
-    
-    
-//
-//    @PostMapping("jugar")
-//    public String elegirRespuesta( Pregunta pregunta, @ModelAttribute("respuesta") Respuesta respuesta, Model model)
-//    {
-//  
-//       return "./PreguntaYRespuesta/question-answered";
-//       
-//    }
-
-//    @PostMapping("jugar")
-//    public String responderPregunta( Pregunta pregunta, @ModelAttribute("respuesta") Respuesta respuesta, Model model)
-//    {
-//        try {
-//        	Pregunta preguntaAleatoria = this.preguntaService.findById(pregunta.getId());
-//            Respuesta respuestaElegida = this.respuestaService.findById(respuesta.getId());
-//
-//            Boolean correct = this.preguntaService.isCorrectAnswer(pregunta, respuesta);
-//
-//            model.addAttribute("pregunta", preguntaAleatoria);
-//            model.addAttribute("respuesta", respuestaElegida);
-//            model.addAttribute("correct", correct);
-//
-//            return "./PreguntaYRespuesta/question-answered";
-//        } catch (Exception e) {
-//            return "./PreguntaYRespuesta/not-found";
-//        }
-//    }
+        
 	@PostMapping("jugar")
 	public String comprobarRespuesta(Model model,  Respuesta respuesta, RedirectAttributes redirAttrs) {
-	//	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(12);
+	//	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(5);
 	     
    // 	Jugador unJugador= optionalJugador.get();
-		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(4);
+		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(5);
 	        
 	        Partida unaPartida= optionalPartida.get();
 		
@@ -152,7 +122,7 @@ public class PreguntaYRespuestaController {
 	{
 		unaPartida.restarVidas();
 		this.partidaJpaRepositorio.save(unaPartida);
-		redirAttrs.addFlashAttribute("mensaje", ":/ Respuesta incorrecta... Perdiste una Vida, pero segui jugando!");
+		redirAttrs.addFlashAttribute("mensaje", "Respuesta incorrecta... Perdiste una Vida, pero segui jugando!");
 	return "redirect:/jugar";
 	}
 	}

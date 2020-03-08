@@ -50,29 +50,16 @@
 
 		<main class="row">
 			<div class="container-fluid contenedor">
-				<div class="dado col-md-7 offset-md-1">
+				<div class="texto-dado col-md-8 offset-md-2">
 					
-						<h3>Presioná sobre el DADO para
-							comenzar tu partida!</h3>
-					<form class="" method="post" action= "jugar"  modelAttribute="partida" th:object="${partida}">
+						<h3>¡APRETÁ EL DADO Y PONETE A PRUEBA!</h3>
+						</div>
+					<div class="dado col-md-8 offset-md-2">	
+					<form class="" method="post"  th:object="${partida}" modelAttribute= "partida">
 
-
-
-
-					<!-- 	<div class="col-12 col-md-4">
-							<label for="inputApodo">Apodo</label>
-
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text">@</span>
-								</div>
-
-								<input id="inputApodo" name="apodo" type="text"
-									class="form-control valida-apodo" placeholder="Apodo"
-									aria-describedby="inputGroupPrepend" required> -->
 									
-									<input type="hidden" th:value="${jugadorId}" id="inputJugador" name="jugador" >
-
+<!-- 						<input type="hidden" th:value="${jugadorId}" id="inputJugador" name="jugador"  >
+ -->
 
 								<button class="boton_dado" type="submit" name="button">
 									<img class="dado_animado"
@@ -81,6 +68,7 @@
 								</button>
 					</form>
 
+				</div>
 				</div>
 		</main>
 

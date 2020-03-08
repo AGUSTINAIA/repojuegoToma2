@@ -51,8 +51,8 @@
 			<div class="col-12 col-md-4">
 				<label for="inputNombre">Nombre/s</label> 
 				<input th:field="*{nombre}"  name="nombre"
-					id="inputNombre" type="text" class="form-control valida-nombre"
-					placeholder="Nombre" value="" required> 
+					placeholder="Nombre" id="inputNombre" type="text" class="form-control valida-nombre"
+					 value="" required> 
 					<span
 					class="errorNombre"></span>
 				<span class="errorNombre" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
@@ -105,10 +105,11 @@
 				
 				
 				<div class="col-12 col-md-4">
-					<label>Reingresa tu Contraseña2</label> <input type="password"  th:field="*{contraseña2}"
+					<label>Reingresa tu Contraseña2</label>
+					 <input type="password"  th:field="*{contraseña2}"
 						class="form-control valida-recontraseña"
-						placeholder="Reingresa tu Contraseña" value="" required> <span
-						class="errorReContraseña"></span>
+						placeholder="Reingresa tu Contraseña" value="" required>
+						 <span class="errorReContraseña"></span>
 					<span class="errorReContraseña" th:if="${#fields.hasErrors('contraseña2')}"
 						th:errors="*{contraseña2}"></span>
 

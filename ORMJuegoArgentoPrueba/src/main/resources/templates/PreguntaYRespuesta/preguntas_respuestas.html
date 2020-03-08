@@ -42,17 +42,17 @@
       <main class="row">
 
                     
-          
-  <form  method="post" th:object="${pregunta}" modelAtributte= "" >
+  <div class="container-fluid contenedor">        
+  <form class= "cuestionario" method="post" th:object="${pregunta}" modelAtributte= "" >
   <input type="hidden" th:value="${idJugador}">
-      <div class="tema">
-            <h1 th:if= "${mensaje != null}" th:text="${mensaje}"></h1>
-            </div>
-      <div class="tema">
+      <div class="col-md-8 offset-md-2 ">
+      <h1 th:if= "${mensaje != null}" th:text="${mensaje}"></h1>
+     </div>
+      <div class="tema  col-md-8 offset-md-2">
             <h2 th:text="${tema.nombre}"></h2>
             </div>
            
-          <div class="preg_rtas col-md-7">
+          <div class="preg_rtas col-md-8 offset-md-2">
             <div class="pregunta">
               <h3 th:text="${pregunta.enunciado}"></h3>
             </div>
@@ -71,7 +71,7 @@
              <button th:type="'submit'" th:text="'Enviar'" class="btn btn-primary"></button>
           </div>
     </form>
-           
+         </div>    
       </main>
 
       <footer class="row">

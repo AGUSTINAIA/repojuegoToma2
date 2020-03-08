@@ -25,9 +25,10 @@ public class Partida {
 
  
 
-@OneToOne(fetch = FetchType.LAZY)
+@ManyToOne(fetch = FetchType.LAZY)
 @JoinColumn(name = "jugador_id")
 private Jugador jugador;
+
 
 	@Column
 	private Integer vidas= 3;

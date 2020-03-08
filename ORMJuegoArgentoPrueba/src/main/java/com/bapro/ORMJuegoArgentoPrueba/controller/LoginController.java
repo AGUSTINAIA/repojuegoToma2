@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bapro.ORMJuegoArgentoPrueba.model.Jugador;
 import com.bapro.ORMJuegoArgentoPrueba.repository.JugadorJpaRepositorio;
@@ -23,7 +24,7 @@ public class LoginController {
 	}
 
 	@PostMapping("")
-	public String comprobarLogin(Model model, Jugador jugador) {
+	public String comprobarLogin(Model model, Jugador jugador, RedirectAttributes redirAttrs) {
 		String mailIngresado = jugador.getEmail();
 		String contraseñaIngresada = jugador.getContraseña();
 		Jugador jugadorEncontrado = JugadorJpaRepositorio.findByEmail(mailIngresado);
@@ -39,6 +40,7 @@ public class LoginController {
 		}
 
 		else {
+			redirAttrs.addFlashAttribute("mensaje", "Alguno de los datos es incorrecto, vuelve a intentar");
 			return "./login/login";
 		}
 	}

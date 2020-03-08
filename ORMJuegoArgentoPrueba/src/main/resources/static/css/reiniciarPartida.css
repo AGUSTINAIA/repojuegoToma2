@@ -77,51 +77,24 @@ main{
 
 
 
-.dado{
-  margin-top: 30px;
-  padding-top: 20px;
-  height: 300PX;
 
-  display: inline-block;
-}
-
-.dado h3{
+h3{
   text-align: center;
   font-family: 'Signika', sans-serif;
-}
-
-.boton_dado{
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  display: flex;
-  border-style: none;
-  background: transparent;
-}
-
-.boton_dado img  {
-  height: 150px;
-  justify-content: center;
+  font-size: 50px;
+  margin-top: 90px;
+  
 }
 
 
-.datos{
-  margin-top: 30px;
-  height: 300PX;
-  background: white;
-  display: inline-block;
-
-}
-
-/*aside ul{
-  padding-left: 0;
-}
-aside ul li{
-  list-style: none;
+a h3{
+  text-align: center;
   font-family: 'Signika', sans-serif;
-  margin-top: 10px;
-}*/
+  font-size: 30px;
+  margin-top: 50px;
+  
+}
+
 
 footer{
   display: flex;

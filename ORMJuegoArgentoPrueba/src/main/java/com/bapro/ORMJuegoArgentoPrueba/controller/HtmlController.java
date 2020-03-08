@@ -12,11 +12,7 @@ public class HtmlController {
 		return "./home/home";
 	}
 	
-//	@GetMapping("login")
-//	public String irAlLogin() {
-//		return "./login/login";
-//	}
-//	
+
 	@GetMapping("faqs")
 	public String irAPreguntas() {
 		return "./preguntas/preguntas";
@@ -28,23 +24,12 @@ public class HtmlController {
 	}
 	
 	
+
+	@GetMapping("reiniciarPartida")
+	public String irAReiniciarPartida() {
+		return "./PreguntaYRespuesta/ReiniciarPartida";
+	}
 	
-//	@GetMapping("PreguntaYRespuesta")
-//	public String irAPreguntaYRespuesta() {
-//		return "./PreguntaYRespuesta/preguntas_respuestas";
-//	}
 	
-//	@GetMapping("formulario_preguntas")
-//	public String irAlFormularioDePreguntas() {
-//		return "./formulario_preguntas/formulario_preguntas";
-//	}
-	
-//	
-//	@PostMapping("pyr")
-//	public String postPreguntaYRespuesta() {
-//		System.out.println("Holaaaa");
-//		return "./PreguntaYRespuesta/preguntas_respuestas";
-//	}
-//	
 	
 }

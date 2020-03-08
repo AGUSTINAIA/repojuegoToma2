@@ -55,7 +55,7 @@ public class Jugador {
 	@Size (min=2, max=8, message= "Debe tener entre 2 y 8 caracteres")
 	private String contraseña;
 	
-	
+	@Column
 	@NotBlank(message="Este campo no puede estar vacio" )
 	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	private String ciudad;
@@ -65,10 +65,10 @@ public class Jugador {
 	@Size (min=2, max=8, message= "Debe tener entre 2 y 8 caracteres")
 	private String contraseña2;
 
-
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="jugador")
+	private List<Partida> listaDePartidas;
 	
-//	@OneToMany(fetch=FetchType.LAZY, mappedBy="jugador")
-//	private List<Partida> listaDePartidas;
+
 	
 	public Jugador() {
 		
@@ -86,7 +86,7 @@ public class Jugador {
 		this.ciudad = ciudad;
 		this.contraseña = contraseña;
 		this.contraseña2 = contraseña2;
-		
+		this.listaDePartidas= listaDePartidas;
 		
 	}
 
@@ -160,6 +160,14 @@ public class Jugador {
 
 	public void setContraseña2(String contraseña2) {
 		this.contraseña2 = contraseña2;
+	}
+
+	public List<Partida> getListaDePartidas() {
+		return listaDePartidas;
+	}
+
+	public void setListaDePartidas(List<Partida> listaDePartidas) {
+		this.listaDePartidas = listaDePartidas;
 	}
 
 	

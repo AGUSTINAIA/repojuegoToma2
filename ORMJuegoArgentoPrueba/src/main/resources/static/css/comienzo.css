@@ -78,16 +78,15 @@ main{
 
 
 .dado{
-  margin-top: 30px;
-  padding-top: 20px;
   height: 300PX;
-
   display: inline-block;
 }
 
-.dado h3{
+.texto-dado h3{
   text-align: center;
   font-family: 'Signika', sans-serif;
+  padding-top: 50px;
+  margin-bottom:50px;
 }
 
 .boton_dado{
@@ -114,14 +113,7 @@ main{
 
 }
 
-/*aside ul{
-  padding-left: 0;
-}
-aside ul li{
-  list-style: none;
-  font-family: 'Signika', sans-serif;
-  margin-top: 10px;
-}*/
+
 
 footer{
   display: flex;

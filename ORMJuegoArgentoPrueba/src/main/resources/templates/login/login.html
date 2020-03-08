@@ -60,10 +60,13 @@
           </div>
           <div class="formulario">
             <form  method="post" modelAttribute="jugador" th:object="${jugador}" >
+            
               <p>
                 <label for="email"></label>
                 <input class= "casillero email" id="email" type="email" name="email" value="" placeholder="Ingresa tu correo electrónico" text-center>
-              </p>
+               
+               <input type="hidden" th:value="${jugadorId}" id="jugadorId" >
+            </p>
               <p>
                 <span class="errorEmail"></span>
               </p>
@@ -82,7 +85,7 @@
                 <a href="#">¿Olvidaste tu contraseña?</a>
               </p>
           	
-             	<input type="hidden" th:value="${jugadorId}" >
+             	
               
               <div class="button">
 			<button class="boton-login btn btn-primary" type="submit">Iniciar Sesion</button>

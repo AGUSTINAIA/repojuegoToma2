@@ -25,11 +25,11 @@ import com.bapro.ORMJuegoArgentoPrueba.repository.PartidaJpaRepositorio;
 public class PartidaController {
 	@Autowired
 	private PartidaJpaRepositorio partidaJpaRepositorio;
-	@Autowired
-	private JugadorJpaRepositorio jugadorJpaRepositorio;
+	
 	
 	@GetMapping("")
-	public String irAPartida() {
+	public String irAPartida(Model model) {
+		model.addAttribute("partida",new Partida());
 		return "./partida/comienzo_de_partida";
 	}
 
