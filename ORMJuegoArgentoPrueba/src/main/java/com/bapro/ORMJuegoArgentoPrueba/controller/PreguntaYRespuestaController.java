@@ -66,7 +66,7 @@ public class PreguntaYRespuestaController {
      
         //	Jugador unJugador= optionalJugador.get();
         	
-        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(2);
+        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(12);
         
         Partida unaPartida= optionalPartida.get();
         
@@ -99,7 +99,7 @@ public class PreguntaYRespuestaController {
 	//	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(5);
 	     
    // 	Jugador unJugador= optionalJugador.get();
-		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(2);
+		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(12);
 	        
 	        Partida unaPartida= optionalPartida.get();
 		
@@ -116,7 +116,7 @@ public class PreguntaYRespuestaController {
 			
 			redirAttrs.addFlashAttribute("mensaje", "Bien! tu respuesta es correcta! Segui jugando...");
 			redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
-
+			redirAttrs.addFlashAttribute("mensaje2", " VIDAS: " + unaPartida.getVidas());
 	return "redirect:/jugar";
 	
 	}
@@ -125,6 +125,8 @@ public class PreguntaYRespuestaController {
 		unaPartida.restarVidas();
 		this.partidaJpaRepositorio.save(unaPartida);
 		redirAttrs.addFlashAttribute("mensaje", "Respuesta incorrecta... Perdiste una Vida, pero segui jugando!");
+		redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
+		redirAttrs.addFlashAttribute("mensaje2", " VIDAS: " + unaPartida.getVidas());
 	return "redirect:/jugar";
 	}
 	}
