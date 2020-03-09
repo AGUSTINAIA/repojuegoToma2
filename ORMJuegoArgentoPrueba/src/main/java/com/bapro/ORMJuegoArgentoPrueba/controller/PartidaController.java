@@ -25,46 +25,27 @@ import com.bapro.ORMJuegoArgentoPrueba.repository.PartidaJpaRepositorio;
 public class PartidaController {
 	@Autowired
 	private PartidaJpaRepositorio partidaJpaRepositorio;
+	@Autowired
+	private JugadorJpaRepositorio jugadorJpaRepositorio;
 	
 	
 	@GetMapping("")
-	public String irAPartida(Model model) {
+	public String irAPartida(Model model,Integer jugadorId) {
 		model.addAttribute("partida",new Partida());
+		model.addAttribute("jugadorId",jugadorId);
 		return "./partida/comienzo_de_partida";
 	}
 
 	@PostMapping("")
-	public String comenzarAJugar(Partida partidaARegistrar, Model model) {
+	public String comenzarAJugar(Partida partidaARegistrar, Model model, Integer jugadorId) {
+//		Integer idRecibido= jugador.getId();
+		Optional<Jugador> jugadorOp= jugadorJpaRepositorio.findById(jugadorId);
+		Jugador jugadorEncontrado= jugadorOp.get();
 		
+		partidaARegistrar.setJugador(jugadorEncontrado);
 		Partida partidaRegistrada = partidaJpaRepositorio.save(partidaARegistrar);
 		return "redirect:/jugar";
 	}
 }
-//	@PostMapping("")
-//	public String ingresarPartida(Model model, Jugador jugador,Partida unaPartida, RedirectAttributes redirAttrs) {
-//	String apodoIngresado = jugador.getApodo();
-//	Integer jugadorApodoIng= jugador.getId();
-//	Optional <Jugador> jugadorOp = jugadorJpaRepositorio.findById(jugadorApodoIng);
-//	Jugador jugadorEncontrado= jugadorOp.get();
-//	
-//	if (jugadorEncontrado == null) {
-//		
-//	return "./partida/comienzo_de_partida";
-//	}
-//	if (jugadorEncontrado.getApodo().equals(apodoIngresado)) {
-//			model.addAttribute("apodo", jugadorEncontrado.getId());
-//			partidaJpaRepositorio.save(unaPartida);
-//						
-//	return "redirect:/jugar";
-//	
-//	}
-//	
-//	else
-//	{
-//    redirAttrs.addFlashAttribute("mensaje", "El Apodo Ingresado no corresponde al jugador");	
-//
-//	return "./partida/comienzo_de_partida";
-//	}
-//	}
 
 

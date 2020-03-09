@@ -33,7 +33,7 @@ public class LoginController {
 			return "redirect:/home";
 		}
 		if (jugadorEncontrado.getContraseña().equals(contraseñaIngresada)) {
-			model.addAttribute("jugadorId", jugadorEncontrado.getId());
+			redirAttrs.addAttribute("jugadorId", jugadorEncontrado.getId());
 			
 			return "redirect:/partida";
 

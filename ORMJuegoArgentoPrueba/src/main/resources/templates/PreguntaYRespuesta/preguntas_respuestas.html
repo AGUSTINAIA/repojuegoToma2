@@ -60,7 +60,7 @@
             
             <div class="row" th:each="respuesta : ${pregunta.getLasOpciones()}">
             <div class="col-1">
-                <input type="radio" th:id="'respuesta_' + ${respuesta.id}" name="respuesta" th:value="${respuesta.id}" />
+                <input required type="radio" th:id="'respuesta_' + ${respuesta.id}" name="respuesta" th:value="${respuesta.id}" />
             </div>
             <div class="col-8">
                 <label th:text="${respuesta.unaRespuesta}" th:for="'respuesta_' + ${respuesta.id}"></label>
