@@ -37,13 +37,15 @@ public class PartidaController {
 	}
 
 	@PostMapping("")
-	public String comenzarAJugar(Partida partidaARegistrar, Model model, Integer jugadorId) {
+	public String comenzarAJugar(Partida partidaARegistrar, Model model, Integer jugadorId, RedirectAttributes redirAttrs) {
 
 		Optional<Jugador> jugadorOp= jugadorJpaRepositorio.findById(jugadorId);
 		Jugador jugadorEncontrado= jugadorOp.get();
 		
 		partidaARegistrar.setJugador(jugadorEncontrado);
 		Partida partidaRegistrada = partidaJpaRepositorio.save(partidaARegistrar);
+		
+		redirAttrs.addAttribute("partidaId", partidaRegistrada.getId());
 		return "redirect:/jugar";
 	}
 }

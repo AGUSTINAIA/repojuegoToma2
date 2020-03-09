@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scalable=1">
-    <title>Preguntas_respuestas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/preguntas_respuestas.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap" rel="stylesheet">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scalable=1">
+<title>Preguntas_respuestas</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/preguntas_respuestas.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico|Satisfy|Signika&display=swap"
+	rel="stylesheet">
 
-  </head>
-  <body>
-    <div class="container-fluid contenedor">
+</head>
+<body>
+	<div class="container-fluid contenedor">
 
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a href="home"> <img src="imagenes/logo.png" alt="logo" class="logo">  </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a href="home"> <img src="imagenes/logo.png" alt="logo"
+					class="logo">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="registro">REGISTRATE <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login">LOGIN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="faqs">PREGUNTAS FRECUENTES</a>
-          </li>
-        </ul>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><a class="nav-link"
+							href="registro">REGISTRATE <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="login">LOGIN</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="faqs">PREGUNTAS
+								FRECUENTES</a></li>
+					</ul>
 
 					<nav class="nvbar navbar ">
 						<div class="dropdown">
@@ -39,31 +47,24 @@
 							<div class="dropdown-menu text-center">
 								<a href="/login">Salir</a>
 							</div>
-							</div>
+						</div>
 					</nav>
-				
-    </nav>
-      </header>
+			</nav>
+		</header>
 
-      <main class="">
+		<main class="">
 
-                    
-  <div class="container-fluid contenedor">   
-       
-  <form class= "cuestionario" method="post" th:object="${pregunta}" modelAtributte= "" >
-  <input type="hidden" th:value="${idJugador}">
-      <div class= "row mensajes">
-      <div class="col-md-8 offset-md-2 ">
-      <h1 th:if= "${mensaje != null}" th:text="${mensaje}"></h1>
-      
-     </div>
-     
-     
 
-     
-     </div>
-     
-      <div class= "row">
+			<div class="container-fluid contenedor">
+
+				<form class="cuestionario" method="post" th:object="${pregunta}"
+					modelAtributte="">
+					<input type="hidden" th:value="${idJugador}"> <input
+						type="hidden" th:value="${partidaId}" id="inputPartida"
+						name="partidaId">
+
+
+					<div class="row">
 						<div class="tema  col-md-8 offset-md-2">
 							<h2 th:text="${tema.nombre}"></h2>
 						</div>
@@ -94,23 +95,37 @@
 							</div>
 
 
+
 							<button th:type="'submit'" th:text="'Enviar'"
 								class="btn btn-primary"></button>
 						</div>
-					</div>
-    </form>
-         </div>  
-           
-      </main>
+						
+							<div class="col-md-12 ">
+								<h1 th:if="${mensaje != null}" th:text="${mensaje}"></h1>
 
-      <footer class="row">
-        <div class="col-12 footer">
-          Grupo9DHCopyright2019 - Todos los derechos reservados.
-        </div>
-      </footer>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+							</div>
+						
+					</div>
+				</form>
+			</div>
+
+		</main>
+
+		<footer class="row">
+			<div class="col-12 footer">Grupo9DHCopyright2019 - Todos los
+				derechos reservados.</div>
+		</footer>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
 </html>

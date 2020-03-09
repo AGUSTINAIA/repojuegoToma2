@@ -51,22 +51,15 @@ public class PreguntaYRespuestaController {
 	@Autowired
 	private PartidaJpaRepositorio partidaJpaRepositorio;
 
-    
-//    @GetMapping ("jugar")
-//    public String irAPreguntaYRespuesta(Model model) {
-//   	return "./PreguntaYRespuesta/preguntas_respuestas";
-//    }
+   
 
     @GetMapping("jugar")
-    public String getPreguntaRespuesta( Model model)
+    public String getPreguntaRespuesta( Model model, Integer partidaId){
+    	model.addAttribute("partidaId", partidaId);
     
-    {
     	    	    	
-    	//Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(12);
-     
-        //	Jugador unJugador= optionalJugador.get();
-        	
-        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(12);
+    	        	
+        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(partidaId);
         
         Partida unaPartida= optionalPartida.get();
         
@@ -82,7 +75,7 @@ public class PreguntaYRespuestaController {
     			
     			Random miAleatorioPregunta = new Random();
     			Integer p = miAleatorioPregunta.nextInt(unTema.getPreguntasDelTema().size());
-    		
+    			
     			Pregunta pregunta = unTema.getPreguntasDelTema().get(p);
     			
     			model.addAttribute("pregunta", pregunta);
@@ -93,13 +86,13 @@ public class PreguntaYRespuestaController {
             return "redirect:/reiniciarPartida";
         }
     }
+    
+    private List<Pregunta> preguntasPreguntadas ;
         
 	@PostMapping("jugar")
-	public String comprobarRespuesta(Model model,  Respuesta respuesta, RedirectAttributes redirAttrs) {
-	//	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(5);
-	     
-   // 	Jugador unJugador= optionalJugador.get();
-		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(12);
+	public String comprobarRespuesta(Model model,  Respuesta respuesta, RedirectAttributes redirAttrs,Integer partidaId) {
+		
+		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(partidaId);
 	        
 	        Partida unaPartida= optionalPartida.get();
 		
@@ -117,6 +110,7 @@ public class PreguntaYRespuestaController {
 			redirAttrs.addFlashAttribute("mensaje", "Bien! tu respuesta es correcta! Segui jugando...");
 			redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
 			redirAttrs.addFlashAttribute("mensaje2", " VIDAS: " + unaPartida.getVidas());
+			redirAttrs.addAttribute("partidaId", unaPartida.getId());
 	return "redirect:/jugar";
 	
 	}
@@ -127,6 +121,8 @@ public class PreguntaYRespuestaController {
 		redirAttrs.addFlashAttribute("mensaje", "Respuesta incorrecta... Perdiste una Vida, pero segui jugando!");
 		redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
 		redirAttrs.addFlashAttribute("mensaje2", " VIDAS: " + unaPartida.getVidas());
+		redirAttrs.addAttribute("partidaId", unaPartida.getId());
+
 	return "redirect:/jugar";
 	}
 	}
