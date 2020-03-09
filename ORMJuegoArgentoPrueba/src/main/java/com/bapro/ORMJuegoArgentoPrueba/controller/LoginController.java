@@ -40,8 +40,8 @@ public class LoginController {
 		}
 
 		else {
-			redirAttrs.addFlashAttribute("mensaje", "Alguno de los datos es incorrecto, vuelve a intentar");
-			return "./login/login";
+			redirAttrs.addFlashAttribute("mensaje", "Email o Contraseña Inválida");
+			return "redirect:/login";
 		}
 	}
 

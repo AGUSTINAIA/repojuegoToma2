@@ -32,10 +32,7 @@
             <a class="nav-link" href="faqs">PREGUNTAS FRECUENTES</a>
           </li>
         </ul>
-<!--         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form> -->
+
       </div>
     </nav>
       </header>
@@ -77,10 +74,13 @@
               <p>
                 <span class="errorContraseña"></span>
               </p>
+              <span style="color: red" th:if= "${mensaje != null}" th:text="${mensaje}"></span>
               <p>
                 <input type="checkbox" name="recordame" value="si" checked>
+                
                 <label for="recordame">Recordarme</label>
               </p>
+                
               <p>
                 <a href="#">¿Olvidaste tu contraseña?</a>
               </p>
@@ -93,6 +93,7 @@
               <p>
                 ¿Todavía no tenés una cuenta? <a href="registro">Registrate</a>
               </p>
+             
             </form>
 
           </div>

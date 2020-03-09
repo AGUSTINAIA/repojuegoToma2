@@ -66,7 +66,7 @@ public class PreguntaYRespuestaController {
      
         //	Jugador unJugador= optionalJugador.get();
         	
-        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(8);
+        Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(2);
         
         Partida unaPartida= optionalPartida.get();
         
@@ -99,7 +99,7 @@ public class PreguntaYRespuestaController {
 	//	Optional<Jugador> optionalJugador = this.jugadorJpaRepositorio.findById(5);
 	     
    // 	Jugador unJugador= optionalJugador.get();
-		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(8);
+		 Optional <Partida> optionalPartida =this.partidaJpaRepositorio.findById(2);
 	        
 	        Partida unaPartida= optionalPartida.get();
 		
@@ -113,7 +113,7 @@ public class PreguntaYRespuestaController {
 	if (respuestaEncontrada.getEsCorrecta()== true) {
 		unaPartida.acumularPuntos();
 			 this.partidaJpaRepositorio.save(unaPartida);
-			System.out.println(unaPartida.getPuntos());
+			
 			redirAttrs.addFlashAttribute("mensaje", "Bien! tu respuesta es correcta! Segui jugando...");
 			redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
 
