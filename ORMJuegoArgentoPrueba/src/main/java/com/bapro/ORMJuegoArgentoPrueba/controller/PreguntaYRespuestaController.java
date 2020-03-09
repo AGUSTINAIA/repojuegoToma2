@@ -114,7 +114,9 @@ public class PreguntaYRespuestaController {
 		unaPartida.acumularPuntos();
 			 this.partidaJpaRepositorio.save(unaPartida);
 			System.out.println(unaPartida.getPuntos());
-			redirAttrs.addFlashAttribute("mensaje", "Bien! tu respuesta es correcta! sumaste puntos! Siguiente Pregunta...");	
+			redirAttrs.addFlashAttribute("mensaje", "Bien! tu respuesta es correcta! Segui jugando...");
+			redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
+
 	return "redirect:/jugar";
 	
 	}

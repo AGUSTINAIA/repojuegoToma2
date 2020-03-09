@@ -27,22 +27,22 @@ public class Jugador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotBlank(message= "Este campo no puede estar vacio")
+	@NotEmpty(message= "Este campo no puede estar vacio")
 	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	@Column(nullable = false)
 	private String nombre;
 	
-	@NotBlank(message="Este campo no puede estar vacio")
+	@NotEmpty(message="Este campo no puede estar vacio")
 	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	@Column(nullable = false)
 	private String apellido;
 	
+	@NotEmpty(message= "Este campo no puede estar vacio")
 	@Email
 	@Column(nullable = false, unique = true)
-	
 	private String email;
 	
-	@NotBlank(message="Este campo no puede estar vacio")
+	@NotEmpty(message="Este campo no puede estar vacio")
 	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	@Column(nullable = false, unique = true)
 	private String apodo;
@@ -51,17 +51,17 @@ public class Jugador {
 	private String provincia;
 	
 	@Column
-	@NotBlank(message= "Este campo no puede estar vacio")
+	@NotEmpty(message= "Este campo no puede estar vacio")
 	@Size (min=2, max=8, message= "Debe tener entre 2 y 8 caracteres")
 	private String contraseña;
 	
 	@Column
-	@NotBlank(message="Este campo no puede estar vacio" )
+	@NotEmpty(message="Este campo no puede estar vacio" )
 	@Size (min=2, max=20, message= "Debe tener entre 2 y 20 letras")
 	private String ciudad;
 	
 	@Column
-	@NotBlank(message= "Este campo no puede estar vacio")
+	@NotEmpty(message= "Este campo no puede estar vacio")
 	@Size (min=2, max=8, message= "Debe tener entre 2 y 8 caracteres")
 	private String contraseña2;
 

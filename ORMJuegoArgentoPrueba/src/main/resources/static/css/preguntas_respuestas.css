@@ -97,6 +97,18 @@ text-align:center;
   font-family: 'Signika', sans-serif;
 }
 
+div.puntos p{
+border: #337cc4 5px double;
+border-top-left-radius: 20px;
+border-bottom-right-radius: 20px;
+text-align: center;
+font-family: 'Signika', sans-serif;
+background-color: #e6f7f7;
+padding: 10px;
+
+
+	
+}
 .pregunta{
 
 border: #337cc4 5px double;
@@ -111,7 +123,7 @@ border-bottom-right-radius: 20px;
   font-family: 'Signika', sans-serif;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: white;
+  background-color: #e6f7f7;
 
 }
 
@@ -183,14 +195,14 @@ footer{
   header div .form-inline{
     display: none!important;
   }
-
+/* 
   aside{
     display: none;
-  }
+  } */
 
   main div h1{
-    font-size: 35px;
-    margin-bottom: 25px;
+    font-size: 20px;
+  /*   margin-bottom: 25px; */
   }
 
   main div h2{

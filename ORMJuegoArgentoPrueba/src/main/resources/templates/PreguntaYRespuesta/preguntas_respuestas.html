@@ -31,11 +31,20 @@
             <a class="nav-link" href="faqs">PREGUNTAS FRECUENTES</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+<!--         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </div>
+        </form> -->
+					<nav class="nvbar navbar ">
+						<div class="dropdown">
+							<a style="color: white" href="" class="nav-link dropdown-toggle"
+								data-toggle="dropdown">Cerrar Sesion </a>
+							<div class="dropdown-menu text-center">
+								<a href="/login">Salir</a>
+							</div>
+							</div>
+					</nav>
+				
     </nav>
       </header>
 
@@ -47,7 +56,19 @@
   <input type="hidden" th:value="${idJugador}">
       <div class="col-md-8 offset-md-2 ">
       <h1 th:if= "${mensaje != null}" th:text="${mensaje}"></h1>
+      
      </div>
+     
+     
+     
+     <div class="puntos col-md-2 offset-md-10 " >
+      
+      <p th:if= "${mensaje1 != null}" th:text="${mensaje1}"></p>
+     </div>
+     
+     
+     
+     
       <div class="tema  col-md-8 offset-md-2">
             <h2 th:text="${tema.nombre}"></h2>
             </div>

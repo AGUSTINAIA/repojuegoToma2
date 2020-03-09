@@ -38,7 +38,7 @@ public class PartidaController {
 
 	@PostMapping("")
 	public String comenzarAJugar(Partida partidaARegistrar, Model model, Integer jugadorId) {
-//		Integer idRecibido= jugador.getId();
+
 		Optional<Jugador> jugadorOp= jugadorJpaRepositorio.findById(jugadorId);
 		Jugador jugadorEncontrado= jugadorOp.get();
 		

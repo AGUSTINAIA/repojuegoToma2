@@ -125,6 +125,10 @@ span.errorNombre, .errorEmail, .errorApellido, .errorApodo, .errorContraseña, .e
   font-size: 14px;
 }
 
+div span #spanError.errorContraseña{
+	 color: red;
+  font-size: 14px;
+}
 .input-group {
   flex-wrap: nowrap!important;
 }
