@@ -59,9 +59,11 @@
 
 				<form class="cuestionario" method="post" th:object="${pregunta}"
 					modelAtributte="">
-					<input type="hidden" th:value="${idJugador}"> <input
-						type="hidden" th:value="${partidaId}" id="inputPartida"
+					<input type="hidden" th:value="${idJugador}"> 
+					<input type="hidden" th:value="${partidaId}" id="inputPartida"
 						name="partidaId">
+						<input type="hidden" th:value="${partidaPuntos}" id="inputPartida"
+						name="partidaPuntos">
 
 
 					<div class="row">
@@ -106,6 +108,7 @@
 							</div>
 						
 					</div>
+					
 				</form>
 			</div>
 

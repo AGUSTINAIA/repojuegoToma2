@@ -51,10 +51,15 @@ public class PreguntaYRespuestaController {
 	@Autowired
 	private PartidaJpaRepositorio partidaJpaRepositorio;
 
-   
+//	private List<Pregunta> preguntasPreguntadas ;
 
-    @GetMapping("jugar")
-    public String getPreguntaRespuesta( Model model, Integer partidaId){
+//    public PreguntaYRespuestaController() {
+//		
+//		this.preguntasPreguntadas = new ArrayList<Pregunta>() ;
+//	}
+
+	@GetMapping("jugar")
+    public String getPreguntaRespuesta( Model model, Integer partidaId,RedirectAttributes redirAttrs){
     	model.addAttribute("partidaId", partidaId);
     
     	    	    	
@@ -64,6 +69,8 @@ public class PreguntaYRespuestaController {
         Partida unaPartida= optionalPartida.get();
         
         	if (unaPartida.getVidas()> 0 ) {
+//        		Pregunta pregunta=null;
+//        		do {
         		Random miAleatorioTema = new Random();
     			Integer n = (miAleatorioTema.nextInt(6))+1;
     			
@@ -77,17 +84,26 @@ public class PreguntaYRespuestaController {
     			Integer p = miAleatorioPregunta.nextInt(unTema.getPreguntasDelTema().size());
     			
     			Pregunta pregunta = unTema.getPreguntasDelTema().get(p);
-    			
+        		
     			model.addAttribute("pregunta", pregunta);
+    			
+//    			preguntasPreguntadas.add(pregunta);
+        		
+      		
+//    			}while(!this.preguntasPreguntadas.contains(pregunta));	
+        		
+    			
+    			
            
             return "./PreguntaYRespuesta/preguntas_respuestas";
             
         } else {
+        	redirAttrs.addAttribute("partidaPuntos", unaPartida.getPuntos());
             return "redirect:/reiniciarPartida";
         }
     }
     
-    private List<Pregunta> preguntasPreguntadas ;
+ 
         
 	@PostMapping("jugar")
 	public String comprobarRespuesta(Model model,  Respuesta respuesta, RedirectAttributes redirAttrs,Integer partidaId) {
@@ -122,6 +138,7 @@ public class PreguntaYRespuestaController {
 		redirAttrs.addFlashAttribute("mensaje1", " PUNTOS ACUMULADOS: " + unaPartida.getPuntos());
 		redirAttrs.addFlashAttribute("mensaje2", " VIDAS: " + unaPartida.getVidas());
 		redirAttrs.addAttribute("partidaId", unaPartida.getId());
+		
 
 	return "redirect:/jugar";
 	}

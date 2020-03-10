@@ -109,17 +109,7 @@ public class Pregunta {
                .filter(Respuesta -> Respuesta.getEsCorrecta().equals(true))
                .collect(Collectors.toList());
     }
-/* esto es lo que agrego JC
- 
-	void addRespuestas (Respuesta unaRespuesta) {
-		this.lasOpciones.add(unaRespuesta);
-		unaRespuesta.setPregunta(this);
-	}
 
-  
-
- 
-	*/
 
 	public Tema getTema() {
 		return tema;
@@ -128,6 +118,27 @@ public class Pregunta {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+
+	
+
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Pregunta other = (Pregunta) obj;
+//		if (id == null) {
+//			if (other.id != null)
+//				return false;
+//		} else if (!id.equals(other.id))
+//			return false;
+//		return true;
+//	}
+//	
+//	
 	
 	
 

@@ -1,8 +1,10 @@
 package com.bapro.ORMJuegoArgentoPrueba.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HtmlController {
@@ -26,7 +28,8 @@ public class HtmlController {
 	
 
 	@GetMapping("reiniciarPartida")
-	public String irAReiniciarPartida() {
+	public String irAReiniciarPartida(Model model,Integer partidaPuntos,RedirectAttributes redirAttrs) {
+		model.addAttribute("partidaPuntos", partidaPuntos);
 		return "./PreguntaYRespuesta/ReiniciarPartida";
 	}
 	

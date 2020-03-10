@@ -78,16 +78,28 @@ main{
 
 
 
-h3{
+div.perdistes h2{
   text-align: center;
   font-family: 'Signika', sans-serif;
-  font-size: 50px;
-  margin-top: 90px;
+  font-size: 30px;
+  margin-top: 40px;
   
+}
+div.perdistes h2.puntos{
+  text-align: center;
+  font-family: 'Signika', sans-serif;
+  font-size: 30px;
+  margin-top: 40px;
+  border: #337cc4 5px double;
+border-top-left-radius: 20px;
+border-bottom-right-radius: 20px;
+  background-color: #e6f7f7;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
-a h3{
+div.perdistes h2 a{
   text-align: center;
   font-family: 'Signika', sans-serif;
   font-size: 30px;
