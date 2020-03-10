@@ -30,7 +30,8 @@ public class LoginController {
 		Jugador jugadorEncontrado = JugadorJpaRepositorio.findByEmail(mailIngresado);
 
 		if (jugadorEncontrado == null) {
-			return "redirect:/home";
+			redirAttrs.addFlashAttribute("mensaje", "Email o Contraseña Inválida");
+			return "redirect:/login";
 		}
 		if (jugadorEncontrado.getContraseña().equals(contraseñaIngresada)) {
 			redirAttrs.addAttribute("jugadorId", jugadorEncontrado.getId());
